@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - Accueil{% endblock title %}
+
+{% block nav_class %}fixed-top{% endblock nav_class %}
+
+{% block inner_nav %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="far fa-user fa-3x text-white"></i></a></li>
+        <li class="nav-item nav-item-carrot"><a class="nav-link js-scroll-trigger" href="#services"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
+    </ul>
+</div>
+{% endblock inner_nav %}
+
+
+{% block header %}
+<header class="masthead">
+    <div class="container inner-header">
+        <div class="row h-100 align-items-start justify-content-center text-center">
+            <div class="col-lg-9">
+                <h1 class="text-uppercase text-white font-weight-bold">Du gras, oui, mais de qualité !</h1>
+                <hr class="divider my-4" />
+                <h2 class="text-uppercase text-white font-weight-bold mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
+                <form action="" class="flexContainer">
+                  <input class="text-white" type="text" placeholder="Produit" name="search"></input>
+                  <button type="submit" class="btn btn-primary">Chercher</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block main_content %}
+<section class="page-section bg-primary colette-remy" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">Colette et Remy</h2>
+                <p class="text-white-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <div class="row justify-content-around align-items-end">
+          <div class="col-md-4 text-center img-colette-remy">
+            <img src="{% static 'dist/assets/img/colette-tatou-full.png' %}">
+            <h2 class="text-white mt-0">Colette</h2>
+          </div>
+          <div class="col-md-4 text-center img-colette-remy">
+            <img src="{% static 'dist/assets/img/remy_transparent.png' %}">
+            <h2 class="text-white mt-0">Remy</h2>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock main_content %}
+
+{% block center %}
+<!-- Contact-->
+<section class="page-section blue-bg" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="text-white mt-0">Contactez nous !</h2>
+                <hr class="divider my-4" />
+                <p class="text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ml-auto text-center mb-5 mb-lg-0">
+                <i class="fas fa-phone fa-3x mb-3 text-white"></i>
+                <p class="text-white">00 00 00 00 00</p>
+            </div>
+            <div class="col-md-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 text-white"></i
+                ><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block text-white" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock center %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pur Beurre{% block title %}{% endblock title %}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'dist/assets/img/favicon.png' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'dist/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+
+        <!-- Navbar-->
+        <!-- Masthead-->
+
+        <nav class="navbar navbar-expand-lg navbar-light py-3 {% block nav_class %}{% endblock nav_class %}" id="mainNav">
+          <a class="navbar-brand js-scroll-trigger text-white" href="#page-top"><img src="{% static 'dist/assets/img/favicon.png' %}" class="nav-icon"></a>
+          <a class="navbar-brand js-scroll-trigger text-white" href="#page-top">Pur Beurre</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="container">
+               {% block inner_nav %}
+               {% endblock inner_nav %}
+            </div>
+        </nav>
+        {% block header %}
+        {% endblock header %}
+        <!-- About-->
+        {% block main_content %}
+        {% endblock main_content %}
+        <!-- Services-->
+        {% block center %}
+        {% endblock center %}
+        <!-- Footer-->
+        {% block footer %}
+        <footer class="py-3 {% block inner_footer %}{% endblock inner_footer %}">
+          <div class="container-fluid">
+            <div class="row justify-content-around">
+              <div class="col-lg-4 text-center">
+                  <a href="#">Mentions légales</a>
+              </div>
+              <div class="col-lg-4 text-center">
+                  <a href="#">Contact</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        {% endblock footer %}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'dist/js/scripts.js' %}"></script>
+    </body>
+</html>

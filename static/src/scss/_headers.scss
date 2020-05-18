@@ -1,0 +1,18 @@
+.food-header, .account-header {
+  height: 220px;
+  background-repeat: repeat-x !important;
+  background-position: center !important;
+  background-size: contain !important;
+  h2 {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+  }
+}
+
+.account-header {
+  background: linear-gradient(to bottom, #{fade-out($caramel, .7)} 0%,#{fade-out($caramel, .7)} 100%), url('../assets/img/classic_header.png');
+}
+
+.food-header {
+  background: linear-gradient(to bottom, #{fade-out($caramel, .7)} 0%,#{fade-out($caramel, .7)} 100%), url('../assets/img/nutella.jpg');
+}

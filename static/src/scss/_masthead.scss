@@ -1,0 +1,72 @@
+// Styling for the masthead
+
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - #{$navbar-height});
+  // replace the masthead.jpg image in the /assets/img directory to change the image
+  // if the image name change, make sure to update the url path below!
+  background: linear-gradient(to bottom, #{fade-out($caramel, .4)} 0%,#{fade-out($caramel, .6)} 100%), url('../assets/img/kawin-harasai-k60JspcBwKE-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  h1 {
+    font-size: 2.25rem;
+  }
+  .flexContainer {
+    display: flex;
+  }
+  form input {
+    background-color: $caramel;
+    height: 60px;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid white;
+    font-family: $font-family-text;
+    font-size: 25px;
+    padding-left: 7px;
+    color: #9c3822;
+    flex: 1;
+  }
+  form button {
+    background-color: $rooibos;
+    border: 2px solid white;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    height: 60px;
+    font-size: 18px;
+    margin-left: -50px;
+    color: $white;
+  }
+  form button:active {
+    color: $white !important;
+    border: 2px solid white !important;
+    border-left: none !important;
+    box-shadow: none !important;
+  }
+  form button:default {
+    color: $white;
+    box-shadow: none;
+    border: 2px solid white;
+    border-left: none;
+    background-color: $rooibos;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: $navbar-height;
+    padding-bottom: 0;
+    p {
+      font-size: 1.15rem;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+}

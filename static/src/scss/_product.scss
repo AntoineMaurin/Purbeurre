@@ -1,0 +1,23 @@
+.product-section {
+  background-color: $moules;
+  color: $white;
+  img {
+    border-radius: 20px;
+  }
+  button {
+    border: 2px solid $white;
+    background-color: transparent;
+    color: $white;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  button:hover {
+    border: 2px solid $rigolo;
+    background-color: transparent;
+  }
+  button:active {
+    border: 2px solid $white;
+    background-color: $rigolo;
+    color: $moules;
+  }
+}

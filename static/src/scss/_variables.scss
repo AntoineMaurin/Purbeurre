@@ -1,0 +1,27 @@
+// Variables
+
+//- Project colors
+$rooibos: #C45525 !default;
+$moules: #345A61 !default;
+$rigolo: #86EBE6 !default;
+$caramel: #DE9440 !default;
+$biscuit: #E8A75D !default;
+
+
+//- Override and add to color system
+$orange: $biscuit !default;
+$brown: $biscuit !default;
+
+
+//- Override primary color
+$primary: $orange !default;
+$info: $rigolo !default;
+
+//- Override font system
+$font-family-title: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
+$font-family-text: "Scope One", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
+$font-family-base: $font-family-text !default;
+$headings-font-family: $font-family-title !default;
+
+//- Add custom variables
+$navbar-height: 4.5rem !default;

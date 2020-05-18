@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - Product{% endblock title %}
+
+{% block nav_class %}blue-bg{% endblock nav_class %}
+
+{% block inner_nav %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="far fa-user fa-3x text-white"></i></a></li>
+        <li class="nav-item nav-item-carrot"><a class="nav-link js-scroll-trigger" href="#services"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
+    </ul>
+</div>
+{% endblock inner_nav %}
+
+
+{% block header %}
+<header class="food-header">
+    <div class="container h-100 justify-content-center">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div>
+                <h2 class="text-uppercase text-white font-weight-bold px-2">Nutella</h2>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block main_content %}
+<section class="py-2 product-section">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 text-center mt-5 mb-5">
+          <h4 href="#">Nutriscore</h4>
+          <img src="{% static 'dist/assets/img/nutriscore/nutri-E.png' %}">
+      </div>
+      <div class="col-lg-4 text-center mt-5 mb-5">
+          <h4 href="#">Repères nutritionnels pour 100g</h4>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+      <button type="button" name="button" class="px-2">Voir la fiche d'OpenFoodFacts</button>
+    </div>
+  </div>
+</section>
+{% endblock main_content %}
+
+{% block center %}
+{% endblock center %}
