@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - Mes aliments{% endblock title %}
+
+{% block nav_class %}bg-primary{% endblock nav_class %}
+
+{% block header %}
+<header class="my-food-header">
+    <div class="container h-100 justify-content-center">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">Mes aliments</h2>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block main_content %}
+<section class="wheat-bg pt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="food-pic-container align-self-end">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-9.jpg' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
+        <p>Aliment 1</p>
+      </div>
+      <div class="food-pic-container align-self-end" href="#">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-6.jpg' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
+        <p>Aliment 2</p>
+      </div>
+      <div class="food-pic-container align-self-end" href="#">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-5.jpg' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
+        <p>Aliment 3</p>
+      </div>
+      <div class="food-pic-container align-self-end" href="#">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-4.jpg' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
+        <p>Aliment 4</p>
+      </div>
+      <div class="food-pic-container align-self-end" href="#">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-2.jpg' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
+        <p>Aliment 5</p>
+      </div>
+      <div class="food-pic-container align-self-end" href="#">
+        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remi-11.png' %}">
+        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
+        <p>Aliment 6</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main_content %}
+
+{% block footer_class %}classic-footer{% endblock footer_class %}

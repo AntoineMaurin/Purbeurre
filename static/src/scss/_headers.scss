@@ -1,4 +1,4 @@
-.food-header, .account-header {
+.food-header, .account-header, .my-food-header {
   height: 220px;
   background-repeat: repeat-x !important;
   background-position: center !important;
@@ -6,6 +6,7 @@
   h2 {
     background-color: rgba(0, 0, 0, .5);
     border-radius: 10px;
+    font-size: 42px;
   }
 }
 
@@ -15,4 +16,11 @@
 
 .food-header {
   background: linear-gradient(to bottom, #{fade-out($caramel, .7)} 0%,#{fade-out($caramel, .7)} 100%), url('../assets/img/nutella.jpg');
+}
+
+.my-food-header {
+  background: linear-gradient(to bottom, #{fade-out($caramel, .92)} 0%,#{fade-out($caramel, .92)} 100%), url('../assets/img/my_food_bg.PNG');
+  h2 {
+    background-color: #322245;
+  }
 }

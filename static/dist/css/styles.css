@@ -9962,6 +9962,12 @@ hr.divider {
   border-color: #fff;
 }
 
+.divider-grey {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: #343a40;
+}
+
 hr.light {
   border-color: #fff;
 }
@@ -9987,8 +9993,28 @@ hr.light {
   background-color: #345A61 !important;
 }
 
-.caramel_bg {
+.lightblue-bg {
+  background-color: #86EBE6 !important;
+}
+
+.caramel-bg {
   background-color: #DE9440 !important;
+}
+
+.wheat-bg {
+  background-color: wheat !important;
+}
+
+.text-blue {
+  color: #345A61 !important;
+}
+
+.text-rooibos {
+  color: #C45525 !important;
+}
+
+.text-grey {
+  color: #343a40 !important;
 }
 
 .page-section {
@@ -10177,35 +10203,21 @@ header.masthead form button:default {
   margin-right: 5px;
 }
 
-.inner-header {
-  margin-top: 55px;
-}
-
 .img-colette-remy img {
   max-width: 250px;
   max-height: 300px;
 }
 
-footer {
-  background-color: #E8A75D;
-}
-footer a {
-  color: white;
-  font-size: 18px;
-}
-footer a:hover {
-  color: #fff;
-}
-
-.food-header, .account-header {
+.food-header, .account-header, .my-food-header {
   height: 220px;
   background-repeat: repeat-x !important;
   background-position: center !important;
   background-size: contain !important;
 }
-.food-header h2, .account-header h2 {
+.food-header h2, .account-header h2, .my-food-header h2 {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  font-size: 42px;
 }
 
 .account-header {
@@ -10216,6 +10228,13 @@ footer a:hover {
   background: linear-gradient(to bottom, rgba(222, 148, 64, 0.3) 0%, rgba(222, 148, 64, 0.3) 100%), url("../assets/img/nutella.jpg");
 }
 
+.my-food-header {
+  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.08) 0%, rgba(222, 148, 64, 0.08) 100%), url("../assets/img/my_food_bg.PNG");
+}
+.my-food-header h2 {
+  background-color: #322245;
+}
+
 .product-section {
   background-color: #345A61;
   color: #fff;
@@ -10224,22 +10243,83 @@ footer a:hover {
   border-radius: 20px;
 }
 .product-section button {
-  border: 2px solid #fff;
+  border: 2px solid #345A61;
   background-color: transparent;
-  color: #fff;
+  color: #345A61;
   padding: 5px;
   border-radius: 10px;
 }
 .product-section button:hover {
-  border: 2px solid #86EBE6;
-  background-color: transparent;
+  border: 2px solid #C45525;
+  color: #C45525;
 }
 .product-section button:active {
-  border: 2px solid #fff;
-  background-color: #86EBE6;
+  border: 2px solid #345A61;
   color: #345A61;
+}
+
+.food-pic-container {
+  margin: 0 15px 25px;
+  position: relative;
+  width: 300px;
+  height: auto;
+}
+.food-pic-container a {
+  color: #333 !important;
+}
+.food-pic-container p {
+  margin-bottom: 5px;
+}
+.food-pic-container h6 {
+  display: inline-block !important;
+}
+
+.food-pic {
+  width: inherit;
+  height: auto;
+}
+
+.food-score {
+  position: absolute;
+  border-radius: 0 0 0 10px;
+  width: 36px;
+  right: 0;
+  height: 50px;
+  z-index: 10;
 }
 
 .user-info {
   border: 2px solid #fff;
+}
+
+.classic-footer {
+  background-color: #DE9440;
+}
+.classic-footer a {
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 3px 10px 3px;
+  background-color: #C45525;
+}
+.classic-footer a:hover {
+  color: #fff;
+}
+
+.user-footer {
+  background-color: #86EBE6;
+}
+.user-footer a {
+  color: #86EBE6;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 3px 10px 3px;
+  background-color: #345A61;
+}
+.user-footer a:hover {
+  color: #86EBE6;
+}
+
+.footer-element {
+  margin: 10px;
 }

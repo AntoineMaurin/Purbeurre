@@ -28,8 +28,15 @@
           <a class="navbar-brand js-scroll-trigger text-white" href="#page-top"><img src="{% static 'dist/assets/img/favicon.png' %}" class="nav-icon"></a>
           <a class="navbar-brand js-scroll-trigger text-white" href="#page-top">Pur Beurre</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="container">
-               {% block inner_nav %}
-               {% endblock inner_nav %}
+               {% block icons_nav %}
+               <div class="collapse navbar-collapse" id="navbarResponsive">
+                   <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="far fa-user fa-3x text-white"></i></a></li>
+                       <li class="nav-item nav-item-carrot"><a class="nav-link js-scroll-trigger" href="#services"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
+                       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
+                   </ul>
+               </div>
+               {% endblock icons_nav %}
             </div>
         </nav>
         {% block header %}
@@ -38,17 +45,17 @@
         {% block main_content %}
         {% endblock main_content %}
         <!-- Services-->
-        {% block center %}
-        {% endblock center %}
+        {% block secondary %}
+        {% endblock secondary %}
         <!-- Footer-->
         {% block footer %}
-        <footer class="py-3 {% block inner_footer %}{% endblock inner_footer %}">
+        <footer class="py-3 {% block footer_class %}{% endblock footer_class %}">
           <div class="container-fluid">
             <div class="row justify-content-around">
-              <div class="col-lg-4 text-center">
+              <div class="col-lg-4 text-center footer-element">
                   <a href="#">Mentions légales</a>
               </div>
-              <div class="col-lg-4 text-center">
+              <div class="col-lg-4 text-center footer-element">
                   <a href="#">Contact</a>
               </div>
             </div>

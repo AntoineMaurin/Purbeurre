@@ -5,19 +5,48 @@
     border-radius: 20px;
   }
   button {
-    border: 2px solid $white;
+    border: 2px solid $moules;
     background-color: transparent;
-    color: $white;
+    color: $moules;
     padding: 5px;
     border-radius: 10px;
   }
   button:hover {
-    border: 2px solid $rigolo;
-    background-color: transparent;
+    border: 2px solid $rooibos;
+    color: $rooibos;
   }
   button:active {
-    border: 2px solid $white;
-    background-color: $rigolo;
+    border: 2px solid $moules;
     color: $moules;
   }
+}
+
+.food-pic-container {
+  margin: 0 15px 25px;
+  position: relative;
+  width: 300px;
+  height: auto;
+  a {
+    color: #333 !important;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  h6 {
+    display: inline-block !important;
+  }
+}
+
+.food-pic {
+  width: inherit;
+  height: auto;
+}
+
+.food-score {
+  position: absolute;
+  border-radius: 0 0 0 10px;
+  width: 36px;
+  right: 0;
+  height: 50px;
+  z-index: 10;
 }

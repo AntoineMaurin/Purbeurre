@@ -1,0 +1,29 @@
+.classic-footer  {
+  background-color: $caramel;
+  a {
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 3px 10px 3px;
+    background-color: #C45525;
+  &:hover {
+    color: #fff;
+    }
+  }
+}
+.user-footer {
+  background-color: $rigolo;
+  a {
+  color: $rigolo;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 3px 10px 3px;
+  background-color: $moules;
+  &:hover {
+    color: $rigolo;
+    }
+  }
+}
+.footer-element {
+  margin: 10px;
+}
