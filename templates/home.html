@@ -3,6 +3,14 @@
 
 {% block title %} - Accueil{% endblock title %}
 
+{% block nav_title %}
+
+{% if user.is_authenticated %}
+  <h2> Bienvenue {{ user.email }} !</h2>
+{% endif %}
+
+{% endblock nav_title %}
+
 {% block nav_class %}fixed-top{% endblock nav_class %}
 
 {% block header %}

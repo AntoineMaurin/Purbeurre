@@ -9976,6 +9976,13 @@ hr.light {
   font-family: "Scope One", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+form input {
+  width: 230px;
+}
+form input.btn {
+  width: auto;
+}
+
 .btn-xl {
   padding: 1.25rem 2.25rem;
   font-size: 0.85rem;
@@ -10292,17 +10299,17 @@ header.masthead form button:default {
   border: 2px solid #fff;
 }
 
-.classic-footer {
+.classic-footer, .absolute-footer {
   background-color: #DE9440;
 }
-.classic-footer a {
+.classic-footer a, .absolute-footer a {
   color: #fff;
   font-size: 18px;
   border-radius: 5px;
   padding: 3px 10px 3px;
   background-color: #C45525;
 }
-.classic-footer a:hover {
+.classic-footer a:hover, .absolute-footer a:hover {
   color: #fff;
 }
 
@@ -10322,4 +10329,11 @@ header.masthead form button:default {
 
 .footer-element {
   margin: 10px;
+}
+
+.absolute-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

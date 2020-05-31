@@ -1,4 +1,4 @@
-.classic-footer  {
+.classic-footer, .absolute-footer  {
   background-color: $caramel;
   a {
     color: #fff;
@@ -26,4 +26,10 @@
 }
 .footer-element {
   margin: 10px;
+}
+.absolute-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

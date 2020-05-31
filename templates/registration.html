@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} - Inscription{% endblock title %}
+
+{% block nav_title %}
+ <div class="row w-100 justify-content-center text-white">
+   <h1>Inscription</h1>
+ </div>
+{% endblock nav_title %}
+
+{% block nav_class %}bg-primary{% endblock nav_class %}
+
+{% block main_content %}
+<div class="container">
+  <div class="row justify-content-center text-center m-5">
+    <form action="register" method="post">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        {{ form|crispy }}
+        <!-- <div class="m-2">
+          <div>Email</div>
+          <input type="text" id="email" name="email" />
+        </div>
+        <div class="m-2">
+          <div>Mot de passe</div>
+          <input type="password" name="password1" />
+        </div>
+        <div class="m-2">
+          <div>Confirmation du mot de passe</div>
+          <input type="password" name="password2" />
+        </div>-->
+        <div class="text-center mt-3">
+          <input class="btn btn-primary" type="submit" value="Envoyer">
+        </div>
+        <div class="text-muted mt-3">
+          <p>
+            Vous possédez déjà un compte ? <strong><a href="login" class="text-dark">Identifiez vous !</a></strong>
+          </p>
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock main_content %}
+
+{% block footer_class %}absolute-footer{% endblock footer_class %}

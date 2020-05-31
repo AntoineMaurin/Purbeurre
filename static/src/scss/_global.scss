@@ -30,6 +30,14 @@ hr.light {
   font-family: $font-family-text;
 }
 
+//- Form restyling
+form input {
+  width: 230px;
+  &.btn {
+    width: auto;
+  }
+}
+
 //- Custom XL button styling
 
 .btn-xl {
