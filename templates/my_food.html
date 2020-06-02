@@ -5,11 +5,31 @@
 
 {% block nav_class %}bg-primary{% endblock nav_class %}
 
+{% block icons_nav %}
+
+{% if not user.is_authenticated %}
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item"><a href="accounts/login" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
+      </ul>
+  </div>
+{% else %}
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item"><a href="account" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
+        <li class="nav-item nav-item-carrot"><a href="myfood" class="nav-link js-scroll-trigger"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
+        <li class="nav-item"><a href="accounts/logout" class="nav-link js-scroll-trigger"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
+      </ul>
+  </div>
+{% endif %}
+
+{% endblock icons_nav %}
+
 {% block header %}
 <header class="my-food-header">
     <div class="container h-100 justify-content-center">
         <div class="row h-100 align-items-center justify-content-center text-center">
-            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">Mes aliments</h2>
+            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">Mes aliments {{ user }}</h2>
         </div>
     </div>
 </header>

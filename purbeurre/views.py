@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from accounts import views
 
 def homepage(request):
-    return render(request, "home.html")
+    if request.method == 'POST':
+        return views.user_login(request)
+    else:
+        return render(request, "home.html")
 
 def accountpage(request):
     return render(request, "my_account.html")

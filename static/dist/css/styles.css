@@ -9983,6 +9983,10 @@ form input.btn {
   width: auto;
 }
 
+.auth-form {
+  max-width: 300px;
+}
+
 .btn-xl {
   padding: 1.25rem 2.25rem;
   font-size: 0.85rem;
@@ -10022,6 +10026,21 @@ form input.btn {
 
 .text-grey {
   color: #343a40 !important;
+}
+
+.alert-success {
+  color: wheat;
+  background-color: #33a24d;
+}
+
+.alert-warning {
+  color: wheat;
+  background-color: #C45525;
+}
+
+.alert-error {
+  color: wheat;
+  background-color: #bb4343;
 }
 
 .page-section {

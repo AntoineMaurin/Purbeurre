@@ -25,19 +25,12 @@
         <!-- Masthead-->
 
         <nav class="navbar navbar-expand-lg navbar-light py-3 {% block nav_class %}{% endblock nav_class %}" id="mainNav">
-          <a class="navbar-brand js-scroll-trigger text-white" href="#page-top"><img src="{% static 'dist/assets/img/favicon.png' %}" class="nav-icon"></a>
-          <a class="navbar-brand js-scroll-trigger text-white" href="#page-top">Pur Beurre</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <a class="navbar-brand js-scroll-trigger text-white" href="/"><img src="{% static 'dist/assets/img/favicon.png' %}" class="nav-icon"></a>
+          <a class="navbar-brand js-scroll-trigger text-white" href="/">Pur Beurre</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="container">
                {% block nav_title %}
                {% endblock nav_title %}
                {% block icons_nav %}
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                   <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                       <li class="nav-item"><a href="login" class="nav-link js-scroll-trigger" href="#page-top"><i class="far fa-user fa-3x text-white"></i></a></li>
-                       <li class="nav-item nav-item-carrot"><a class="nav-link js-scroll-trigger" href="#services"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
-                       <li class="nav-item"><a href="logout" class="nav-link js-scroll-trigger" href="#page-top"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
-                   </ul>
-                 </div>
                {% endblock icons_nav %}
             </div>
         </nav>
@@ -58,7 +51,7 @@
                   <a href="#">Mentions légales</a>
               </div>
               <div class="col-lg-4 text-center footer-element">
-                  <a href="#">Contact</a>
+                  <a href="">Contact</a>
               </div>
             </div>
           </div>

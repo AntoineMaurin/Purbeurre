@@ -24,5 +24,5 @@ urlpatterns = [
     path('product', views.productpage),
     path('results', views.resultpage),
     path('myfood', views.myfoodpage),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls'))
 ]

@@ -38,6 +38,10 @@ form input {
   }
 }
 
+.auth-form {
+  max-width: 300px;
+}
+
 //- Custom XL button styling
 
 .btn-xl {
@@ -73,6 +77,23 @@ form input {
 }
 .text-grey {
   color: #343a40 !important;
+}
+
+// form alerts
+
+.alert-success {
+  color: wheat;
+  background-color: #33a24d;
+}
+
+.alert-warning {
+  color: wheat;
+  background-color: $rooibos;
+}
+
+.alert-error {
+  color: wheat;
+  background-color: #bb4343;
 }
 
 //- Page section styling
