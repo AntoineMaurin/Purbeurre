@@ -7,15 +7,14 @@
 
 {% block icons_nav %}
 
-{% if not user.is_authenticated %}
+{% if user.is_authenticated %}
   <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <li class="nav-item"><a href="accounts/login" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
-      </ul>
-  </div>
-{% else %}
-  <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item">
+          <form action="" class="flexContainer my-3">
+            <input class="mr-5" type="text" placeholder="Chercher" name="search">
+          </form>
+        </li>
         <li class="nav-item"><a href="account" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
         <li class="nav-item nav-item-carrot"><a href="myfood" class="nav-link js-scroll-trigger"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
         <li class="nav-item"><a href="accounts/logout" class="nav-link js-scroll-trigger"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
@@ -29,7 +28,7 @@
 <header class="account-header">
     <div class="container h-100 justify-content-center">
         <div class="row h-100 align-items-center justify-content-center text-center">
-            <h2 class="text-uppercase text-white font-weight-bold px-2">{{ user.email }}</h2>
+            <h2 class="text-uppercase text-white font-weight-bold px-2">{{ request.session.user_name }}</h2>
         </div>
     </div>
 </header>

@@ -51,7 +51,9 @@ def user_login(request):
         user = authenticate(username=email, password=password)
         if user is not None:
             login(request, user)
-            return render(request, "home.html", {'user': user})
+            request.session['user_mail'] = user.email
+            request.session['user_name'] = user.email.split("@")[0]
+            return redirect("/")
         else:
             messages.error(request, "Email ou mot de passe incorrect.")
             return render(request, "login.html", {'form': form})
@@ -62,4 +64,9 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     form = UserLoginForm()
+    try:
+        del request.session['user_mail']
+        del request.session['user_name']
+    except KeyError:
+        pass
     return render(request, "login.html", {'form': form})

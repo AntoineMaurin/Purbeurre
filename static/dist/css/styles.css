@@ -10056,6 +10056,19 @@ form input.btn {
   font-family: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #212529;
 }
+#mainNav h1 {
+  margin-right: 150px;
+}
+#mainNav .navbar-nav .nav-item form input {
+  background-color: #AAA;
+  border-radius: 5px;
+  border: 2px solid white;
+  height: 34px;
+  width: 250px;
+  font-weight: bold;
+  color: black;
+  padding-left: 6px;
+}
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #6c757d;
   font-family: "Scope One", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

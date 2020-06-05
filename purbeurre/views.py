@@ -1,20 +1,20 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from accounts import views
 
 def homepage(request):
-    if request.method == 'POST':
-        return views.user_login(request)
-    else:
-        return render(request, "home.html")
+    return render(request, "home.html", )
 
+@login_required
 def accountpage(request):
     return render(request, "my_account.html")
+
+@login_required
+def myfoodpage(request):
+    return render(request, "my_food.html")
 
 def productpage(request):
     return render(request, "product_page.html")
 
 def resultpage(request):
     return render(request, "results.html")
-
-def myfoodpage(request):
-    return render(request, "my_food.html")
