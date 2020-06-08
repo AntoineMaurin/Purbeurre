@@ -10062,7 +10062,7 @@ form input.btn {
 #mainNav .navbar-nav .nav-item form input {
   background-color: #AAA;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 1px solid white;
   height: 34px;
   width: 250px;
   font-weight: bold;
