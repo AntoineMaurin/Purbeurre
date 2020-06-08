@@ -10268,7 +10268,7 @@ header.masthead form button:default {
 }
 
 .my-food-header {
-  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.08) 0%, rgba(222, 148, 64, 0.08) 100%), url("../assets/img/my_food_bg.PNG");
+  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.08) 0%, rgba(222, 148, 64, 0.08) 100%), url("../assets/img/my_food_bg.png");
 }
 .my-food-header h2 {
   background-color: #322245;
