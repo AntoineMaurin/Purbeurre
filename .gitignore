@@ -1,5 +1,4 @@
 env/
 .env
 static/node_modules/
-staticfiles/
 __pycache__
