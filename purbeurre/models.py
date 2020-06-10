@@ -11,13 +11,13 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=150)
     nutriscore = models.CharField(max_length=1)
-    url = models.URLField(max_length=250)
+    url = models.URLField()
+    image_url = models.URLField(default=None)
     fat_100g = models.FloatField(default=None)
     saturated_fat_100g = models.FloatField(default=None)
     sugars_100g = models.FloatField(default=None)
     salt_100g = models.FloatField(default=None)
-    image_url = models.URLField(max_length=250, default=None)
-    categories = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
