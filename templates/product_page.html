@@ -11,7 +11,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto my-2 my-lg-0">
       <li class="nav-item">
-        <form action="results" class="flexContainer my-3">
+        <form action="/results" class="flexContainer my-3">
           <input class="mr-5" type="text" placeholder="Chercher" name="user_search">
         </form>
       </li>
@@ -24,7 +24,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto my-2 my-lg-0">
       <li class="nav-item">
-        <form action="results" class="flexContainer my-3">
+        <form action="/results" class="flexContainer my-3">
           <input class="mr-5" type="text" placeholder="Chercher" name="user_search">
         </form>
       </li>
@@ -64,7 +64,7 @@
       </div>
       <div class="col-lg-4 my-5 ml-5">
           <h3 class="text-rooibos">Repères nutritionnels pour 100g</h3>
-          <div class="text-rooibos nutrition-infos">
+          <div class="text-rooibos nutrition-infos ml-2 mt-4">
             {% if product.fat_100g <= 3 %}
               <i class="far fa-check-circle"></i> {{ product.fat_100g }}g Matières grasses / lipides<br>
             {% else %}
@@ -90,8 +90,9 @@
       </div>
     </div>
     <div class="row justify-content-center mb-5">
+      <button type="button" name="button" class="px-2 mx-4" onclick="goBack()">Retour</button>
       <a href="{{ product.url }}">
-        <button type="button" name="button" class="px-2">Voir la fiche d'OpenFoodFacts</button>
+        <button type="button" name="button" class="px-2 mx-4">Voir la fiche d'OpenFoodFacts</button>
       </a>
     </div>
   </div>

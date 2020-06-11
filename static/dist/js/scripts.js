@@ -3,7 +3,13 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
     */
-    (function($) {
+    
+// Go back function
+function goBack() {
+  window.history.back()
+}
+
+(function($) {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing

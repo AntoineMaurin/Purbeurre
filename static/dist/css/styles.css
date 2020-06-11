@@ -10305,6 +10305,8 @@ header.masthead form button:default {
 }
 .food-pic-container a {
   color: #333 !important;
+  width: 300px;
+  height: 400px;
 }
 .food-pic-container p {
   margin-bottom: 5px;

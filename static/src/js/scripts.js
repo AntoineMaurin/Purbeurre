@@ -1,3 +1,9 @@
+
+// Go back function
+function goBack() {
+  window.history.back()
+}
+
 (function($) {
   "use strict"; // Start of use strict
 
