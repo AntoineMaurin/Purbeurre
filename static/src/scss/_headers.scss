@@ -15,12 +15,12 @@
 }
 
 .food-header {
-  background: linear-gradient(to bottom, #{fade-out($caramel, .7)} 0%,#{fade-out($caramel, .7)} 100%), url('../assets/img/nutella.jpg');
+  background: linear-gradient(to bottom, #{fade-out($caramel, .7)} 0%,#{fade-out($caramel, .7)} 100%), url('../assets/img/18392784.jpg');
 }
 
 .my-food-header {
-  background: linear-gradient(to bottom, #{fade-out($caramel, .92)} 0%,#{fade-out($caramel, .92)} 100%), url('../assets/img/my_food_bg.png');
+  background: linear-gradient(to bottom, #{fade-out($caramel, .92)} 0%,#{fade-out($caramel, .92)} 100%), url('../assets/img/18392784.jpg');
   h2 {
-    background-color: #322245;
+    background-color: $rooibos;
   }
 }

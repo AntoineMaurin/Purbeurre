@@ -1,9 +1,28 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from purbeurre.database_search import DatabaseSearch
+from purbeurre.models import Product, Category
 from accounts import views
 
+def search(request):
+    if len(request.GET.get('user_search')) > 1:
+        user_search = request.GET.get('user_search')
+        dbs = DatabaseSearch()
+        subs_per_category = dbs.get_substitutes_per_category(user_search)
+
+        context = {'user_search': user_search,
+                   'subs_per_category': subs_per_category}
+
+        return render(request, "results.html", context)
+    else:
+        return render(request, "home.html")
+
+def productpage(request, id):
+    product = Product.objects.get(id=id)
+    return render(request, "product_page.html", {'product': product})
+
 def homepage(request):
-    return render(request, "home.html", )
+    return render(request, "home.html")
 
 @login_required
 def accountpage(request):
@@ -12,9 +31,3 @@ def accountpage(request):
 @login_required
 def myfoodpage(request):
     return render(request, "my_food.html")
-
-def productpage(request):
-    return render(request, "product_page.html")
-
-def resultpage(request):
-    return render(request, "results.html")

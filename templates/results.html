@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} - Mes aliments{% endblock title %}
+{% block title %} - Résultats{% endblock title %}
 
 {% block nav_class %}bg-primary{% endblock nav_class %}
 
@@ -12,7 +12,7 @@
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
         <li class="nav-item">
           <form action="results" class="flexContainer my-3">
-            <input class="mr-5" type="text" placeholder="Chercher" name="search">
+            <input class="mr-5" type="text" placeholder="Chercher" name="user_search">
           </form>
         </li>
         <li class="nav-item"><a href="accounts/login" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
@@ -23,7 +23,7 @@
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
         <li class="nav-item">
           <form action="results" class="flexContainer my-3">
-            <input class="mr-5" type="text" placeholder="Chercher" name="search">
+            <input class="mr-5" type="text" placeholder="Chercher" name="user_search">
           </form>
         </li>
         <li class="nav-item"><a href="account" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
@@ -39,73 +39,60 @@
 <header class="my-food-header">
     <div class="container h-100 justify-content-center">
         <div class="row h-100 align-items-center justify-content-center text-center">
-            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">{{ search }}</h2>
+            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">{{ user_search }}</h2>
         </div>
     </div>
 </header>
 {% endblock header %}
 
 {% block main_content %}
+
 <section class="wheat-bg py-4">
   <h2 class="text-center mb-4">Vous pouvez remplacer cet aliment par :</h2>
+  {% for category in subs_per_category %}
+  {% for key, value in category.items %}
+  <h4 class="text-center mt-4">{{ key }}</h4>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="food-pic-container align-self-end">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-9.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
-        <p>Aliment 1</p>
-        <a href="#">
+      {% for sub in value %}
+      <div class="food-pic-container align-self-end m-3">
+        {% if sub.image_url != 'Nom inconnu' %}
+          <img class="food-pic" src="{{ sub.image_url }}">
+          {% if sub.nutriscore == 'a' %}
+            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
+          {% elif sub.nutriscore == 'b' %}
+            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
+          {% elif sub.nutriscore == 'c' %}
+            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
+          {% elif sub.nutriscore == 'd' %}
+            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
+          {% elif sub.nutriscore == 'e' %}
+            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
+          {% endif %}
+        {% else %}
+        <a href="/product/{{ sub.id }}">
+          <div class="food-pic-container align-self-end m-3">
+            <div class="food-pic align-self-center m-3">
+              <h4>Image non disponible</h4>
+            </div>
+          </div>
+        </a>
+        {% endif %}
+        {% if sub.name %}
+          <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize }}</p></a>
+        {% else %}
+          <a href="/product/{{ sub.id }}"><p>Nom indisponible</p></a>
+        {% endif %}
+        <a href="myfood">
           <i class="far fa-save"></i>
           <h6>Sauvegarder</h6>
         </a>
       </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-6.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
-        <p>Aliment 2</p>
-        <a href="#">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-5.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
-        <p>Aliment 3</p>
-        <a href="#">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-4.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
-        <p>Aliment 4</p>
-        <a href="#">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-2.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
-        <p>Aliment 5</p>
-        <a href="#">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remi-11.png' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
-        <p>Aliment 6</p>
-        <a href="#">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
-      </div>
+      {% endfor %}
     </div>
   </div>
+  {% endfor %}
+  {% endfor %}
 </section>
 {% endblock main_content %}
 

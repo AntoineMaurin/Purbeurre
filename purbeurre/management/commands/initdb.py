@@ -8,5 +8,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         d = DatabaseInit()
-        # d.delete_products()
+        d.delete_products()
         d.request()

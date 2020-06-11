@@ -77,7 +77,7 @@ class DatabaseInit:
 
     def get_basic_data(self, key, dict):
         if key in dict:
-            return dict[key].replace('\n', "")
+            return dict[key].replace('\n', "").lower()
         elif key not in dict and key == 'nutrition_grade_fr'   :
             return "N"
         else:

@@ -10264,14 +10264,14 @@ header.masthead form button:default {
 }
 
 .food-header {
-  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.3) 0%, rgba(222, 148, 64, 0.3) 100%), url("../assets/img/nutella.jpg");
+  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.3) 0%, rgba(222, 148, 64, 0.3) 100%), url("../assets/img/18392784.jpg");
 }
 
 .my-food-header {
-  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.08) 0%, rgba(222, 148, 64, 0.08) 100%), url("../assets/img/my_food_bg.png");
+  background: linear-gradient(to bottom, rgba(222, 148, 64, 0.08) 0%, rgba(222, 148, 64, 0.08) 100%), url("../assets/img/18392784.jpg");
 }
 .my-food-header h2 {
-  background-color: #322245;
+  background-color: #C45525;
 }
 
 .product-section {
@@ -10282,19 +10282,19 @@ header.masthead form button:default {
   border-radius: 20px;
 }
 .product-section button {
-  border: 2px solid #345A61;
+  border: 2px solid #C45525;
   background-color: transparent;
-  color: #345A61;
+  color: #C45525;
   padding: 5px;
   border-radius: 10px;
 }
 .product-section button:hover {
-  border: 2px solid #C45525;
-  color: #C45525;
+  border: 2px solid #DE9440;
+  color: #DE9440;
 }
 .product-section button:active {
-  border: 2px solid #345A61;
-  color: #345A61;
+  border: 2px solid #DE9440;
+  color: #DE9440;
 }
 
 .food-pic-container {
@@ -10315,7 +10315,7 @@ header.masthead form button:default {
 
 .food-pic {
   width: inherit;
-  height: auto;
+  height: 400px;
 }
 
 .food-score {
@@ -10325,6 +10325,11 @@ header.masthead form button:default {
   right: 0;
   height: 50px;
   z-index: 10;
+}
+
+.nutrition-infos {
+  text-align: left;
+  font-size: 20px;
 }
 
 .user-info {

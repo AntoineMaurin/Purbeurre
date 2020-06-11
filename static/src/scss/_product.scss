@@ -5,19 +5,19 @@
     border-radius: 20px;
   }
   button {
-    border: 2px solid $moules;
+    border: 2px solid $rooibos;
     background-color: transparent;
-    color: $moules;
+    color: $rooibos;
     padding: 5px;
     border-radius: 10px;
   }
   button:hover {
-    border: 2px solid $rooibos;
-    color: $rooibos;
+    border: 2px solid $caramel;
+    color: $caramel;
   }
   button:active {
-    border: 2px solid $moules;
-    color: $moules;
+    border: 2px solid $caramel;
+    color: $caramel;
   }
 }
 
@@ -39,7 +39,7 @@
 
 .food-pic {
   width: inherit;
-  height: auto;
+  height: 400px;
 }
 
 .food-score {
@@ -49,4 +49,9 @@
   right: 0;
   height: 50px;
   z-index: 10;
+}
+
+.nutrition-infos {
+  text-align: left;
+  font-size: 20px;
 }
