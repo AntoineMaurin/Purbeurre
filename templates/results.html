@@ -48,6 +48,15 @@
 {% block main_content %}
 
 <section class="wheat-bg py-4">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="row justify-content-center col-auto">
+      <div class="alert alert-{{ message.tags }} text-center">
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
   <h2 class="text-center mb-4">Vous pouvez remplacer cet aliment par :</h2>
   {% for category in subs_per_category %}
   {% for key, value in category.items %}
@@ -55,9 +64,7 @@
   <div class="container">
     <div class="row justify-content-center">
       {% for sub in value %}
-
         <div class="food-pic-container align-self-end m-3">
-
         {% if sub.image_url != 'Nom inconnu' %}
           <img class="food-pic" src="{{ sub.image_url }}">
           {% if sub.nutriscore == 'a' %}
@@ -85,7 +92,7 @@
         {% else %}
           <a href="/product/{{ sub.id }}"><p>Nom indisponible</p></a>
         {% endif %}
-        <a href="myfood">
+        <a href="save/{{ sub.id }}">
           <i class="far fa-save"></i>
           <h6>Sauvegarder</h6>
         </a>

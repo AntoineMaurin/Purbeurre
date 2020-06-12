@@ -28,7 +28,7 @@
 <header class="my-food-header">
     <div class="container h-100 justify-content-center">
         <div class="row h-100 align-items-center justify-content-center text-center">
-            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">Mes aliments {{ request.session.user_name }}</h2>
+            <h2 class="text-uppercase text-white font-weight-bold mt-3 px-2 py-1">Mes aliments</h2>
         </div>
     </div>
 </header>
@@ -36,38 +36,52 @@
 
 {% block main_content %}
 <section class="wheat-bg pt-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="food-pic-container align-self-end">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-9.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
-        <p>Aliment 1</p>
+  <div class="container-fluid">
+    {% if messages %}
+      {% for message in messages %}
+      <div class="row justify-content-center col-auto">
+        <div class="alert alert-{{ message.tags }} text-center">
+          {{ message }}
+        </div>
       </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-6.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
-        <p>Aliment 2</p>
+      {% endfor %}
+    {% endif %}
+    <div class="row justify-content-center w-100">
+    {% for product in products %}
+      <div class="food-pic-container align-self-end m-3">
+      {% if product.image_url != 'Nom inconnu' %}
+        <img class="food-pic" src="{{ product.image_url }}">
+        {% if product.nutriscore == 'a' %}
+          <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
+        {% elif product.nutriscore == 'b' %}
+          <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
+        {% elif product.nutriscore == 'c' %}
+          <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
+        {% elif product.nutriscore == 'd' %}
+          <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
+        {% elif product.nutriscore == 'e' %}
+          <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
+        {% endif %}
+      {% else %}
+        <a href="/product/{{ product.id }}">
+          <div class="food-pic-container align-self-end m-3">
+            <div class="food-pic align-self-center m-3">
+              <h4>Image non disponible</h4>
+            </div>
+          </div>
+        </a>
+      {% endif %}
+      {% if product.name %}
+        <a href="/product/{{ product.id }}"><p>{{ product.name.capitalize }}</p></a>
+      {% else %}
+        <a href="/product/{{ product.id }}"><p>Nom indisponible</p></a>
+      {% endif %}
+      <a href="/remove/{{ product.id }}">
+        <i class="fa fa-trash"></i>
+        <h6>Supprimer</h6>
+      </a>
       </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-5.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
-        <p>Aliment 3</p>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-4.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
-        <p>Aliment 4</p>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remy-2.jpg' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
-        <p>Aliment 5</p>
-      </div>
-      <div class="food-pic-container align-self-end" href="#">
-        <img class="food-pic" src="{% static 'dist/assets/img/fullsize/remi-11.png' %}">
-        <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
-        <p>Aliment 6</p>
-      </div>
+    {% endfor %}
     </div>
   </div>
 </section>

@@ -24,8 +24,7 @@ class Product(models.Model):
 
 class Search(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product')
-    substitute = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='substitute')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.email

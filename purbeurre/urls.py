@@ -23,6 +23,8 @@ urlpatterns = [
     path('results', views.search),
     path('account', views.accountpage),
     path('product/<int:id>', views.productpage),
+    path('save/<int:id>', views.save),
+    path('remove/<int:id>', views.remove),
     path('myfood', views.myfoodpage),
     path('accounts/', include('accounts.urls')),
 ]
