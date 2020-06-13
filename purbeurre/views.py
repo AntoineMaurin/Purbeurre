@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from purbeurre.database_search import DatabaseSearch
-from purbeurre.models import Product, Category, Search
+from purbeurre.models import Product, Category, Favourite
 from django.contrib.auth.models import User
 from accounts import views
 from django.http import HttpResponse
@@ -34,8 +34,8 @@ def save(request, id):
 
     product = Product.objects.get(id=id)
 
-    if not Search.objects.filter(user=user, product=product).exists():
-        Search.objects.create(user=user, product=product)
+    if not Favourite.objects.filter(user=user, product=product).exists():
+        Favourite.objects.create(user=user, product=product)
         messages.info(request, "Aliment ajouté à votre liste !")
     else:
         messages.info(request, "Ce produit est déjà dans votre liste !")
@@ -49,7 +49,7 @@ def remove(request, id):
 
     product = Product.objects.get(id=id)
 
-    Search.objects.filter(user=user, product=product).delete()
+    Favourite.objects.filter(user=user, product=product).delete()
 
     messages.info(request, "Produit supprimé !")
 
@@ -61,7 +61,7 @@ def myfoodpage(request):
     user_mail = request.session['user_mail']
     user = User.objects.get(email=user_mail)
 
-    favs = Search.objects.filter(user=user)
+    favs = Favourite.objects.filter(user=user)
 
     favourites = []
 
