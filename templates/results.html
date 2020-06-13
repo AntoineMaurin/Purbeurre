@@ -22,13 +22,13 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
         <li class="nav-item">
-          <form action="results" class="flexContainer my-3">
+          <form action="/results" class="flexContainer my-3">
             <input class="mr-5" type="text" placeholder="Chercher" name="user_search">
           </form>
         </li>
-        <li class="nav-item"><a href="account" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
-        <li class="nav-item nav-item-carrot"><a href="myfood" class="nav-link js-scroll-trigger"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
-        <li class="nav-item"><a href="accounts/logout" class="nav-link js-scroll-trigger"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
+        <li class="nav-item"><a href="/account" class="nav-link js-scroll-trigger"><i class="far fa-user fa-3x text-white"></i></a></li>
+        <li class="nav-item nav-item-carrot"><a href="/myfood" class="nav-link js-scroll-trigger"><img src="{% static 'dist/assets/img/carrot_icon_transparent.png' %}"></a></li>
+        <li class="nav-item"><a href="/accounts/logout" class="nav-link js-scroll-trigger"><i class="fas fa-sign-out-alt fa-3x text-white"></i></a></li>
       </ul>
   </div>
 {% endif %}
@@ -58,50 +58,59 @@
     {% endfor %}
   {% endif %}
   <h2 class="text-center mb-4">Vous pouvez remplacer cet aliment par :</h2>
-  {% for category in subs_per_category %}
-  {% for key, value in category.items %}
-  <h4 class="text-center mt-4">{{ key }}</h4>
-  <div class="container">
-    <div class="row justify-content-center">
-      {% for sub in value %}
-        <div class="food-pic-container align-self-end m-3">
-        {% if sub.image_url != 'Nom inconnu' %}
-          <img class="food-pic" src="{{ sub.image_url }}">
-          {% if sub.nutriscore == 'a' %}
-            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
-          {% elif sub.nutriscore == 'b' %}
-            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
-          {% elif sub.nutriscore == 'c' %}
-            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
-          {% elif sub.nutriscore == 'd' %}
-            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
-          {% elif sub.nutriscore == 'e' %}
-            <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
-          {% endif %}
-        {% else %}
-        <a href="/product/{{ sub.id }}">
-          <div class="food-pic-container align-self-end m-3">
-            <div class="food-pic align-self-center m-3">
-              <h4>Image non disponible</h4>
+  <div class="container justify-content-center w-100">
+    {% for category in subs_per_category %}
+      {% for key, value in category.items %}
+      <h4 class="text-center mt-4">{{ key }}</h4>
+      <div class="row justify-content-center">
+        {% for sub in value %}
+          <div class="item-container m-4 justify-content-center">
+          {% if sub.image_url != 'Nom inconnu' %}
+            <div class="food-pic-container">
+              <a href="/product/{{ sub.id }}">
+                <img class="food-pic" src="{{ sub.image_url }}">
+            {% if sub.nutriscore == 'a' %}
+              <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/A-icon.png' %}">
+            {% elif sub.nutriscore == 'b' %}
+              <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/B-icon.png' %}">
+            {% elif sub.nutriscore == 'c' %}
+              <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/C-icon.png' %}">
+            {% elif sub.nutriscore == 'd' %}
+              <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/D-icon.png' %}">
+            {% elif sub.nutriscore == 'e' %}
+              <img class="food-score" src="{% static 'dist/assets/img/nutriscore-icons/E-icon.png' %}">
+            {% endif %}
+              </a>
             </div>
-          </div>
-        </a>
-        {% endif %}
-        {% if sub.name %}
-          <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize }}</p></a>
-        {% else %}
-          <a href="/product/{{ sub.id }}"><p>Nom indisponible</p></a>
-        {% endif %}
-        <a href="save/{{ sub.id }}">
-          <i class="far fa-save"></i>
-          <h6>Sauvegarder</h6>
-        </a>
+          {% else %}
+            <a href="/product/{{ sub.id }}">
+              <div class="m-3">
+                <h4>Image non disponible</h4>
+              </div>
+            </a>
+          {% endif %}
+          {% if sub.name %}
+            <div class="item-links">
+              {% if sub.name|length > 35 %}
+                <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize|slice:":32" }}...</p></a>
+              {% else %}
+                <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize }}</p></a>
+              {% endif %}
+          {% else %}
+            <div class="item-links">
+              <a href="/product/{{ sub.id }}"><p>Nom indisponible</p></a>
+          {% endif %}
+              <a href="save/{{ sub.id }}">
+                <i class="far fa-save"></i>
+                <h6>Sauvegarder</h6>
+              </a>
+            </div>
+        </div>
+        {% endfor %}
       </div>
       {% endfor %}
-    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-  {% endfor %}
 </section>
 {% endblock main_content %}
 

@@ -36,6 +36,7 @@ def save(request, id):
 
     if not Search.objects.filter(user=user, product=product).exists():
         Search.objects.create(user=user, product=product)
+        messages.info(request, "Aliment ajouté à votre liste !")
     else:
         messages.info(request, "Ce produit est déjà dans votre liste !")
 

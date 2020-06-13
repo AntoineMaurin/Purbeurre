@@ -21,15 +21,17 @@
   }
 }
 
-.food-pic-container {
-  margin: 0 15px 25px;
+.item-container {
   position: relative;
   width: 300px;
-  height: auto;
+  height: 450px;
+  display: flex;
   a {
     color: #333 !important;
-    width: 300px;
-    height: 400px;
+    width: inherit;
+    height: inherit;
+    display: inherit;
+    position: relative;
   }
   p {
     margin-bottom: 5px;
@@ -39,18 +41,44 @@
   }
 }
 
+.food-pic-container {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-height: 400px;
+  max-width: 300px;
+  bottom: 50px;
+  a {
+    color: #333 !important;
+    width: inherit;
+    height: inherit;
+    display: inherit;
+    position: relative;
+  }
+}
+
 .food-pic {
-  width: inherit;
-  height: 400px;
+  width: auto;
+  height: auto;
+  max-height: 400px;
+  max-width: 300px;
+  border-radius: 10px;
+  object-fit: scale-down;
 }
 
 .food-score {
   position: absolute;
-  border-radius: 0 0 0 10px;
+  border-radius: 0 10px 0 10px;
   width: 36px;
   right: 0;
   height: 50px;
   z-index: 10;
+}
+
+.item-links {
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
 }
 
 .nutrition-infos {

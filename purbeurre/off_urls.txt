@@ -1,10 +1,12 @@
-https://fr.openfoodfacts.org/categorie/pates-a-tartiner-au-chocolat.json
+https://fr.openfoodfacts.org/categorie/pates-a-tartiner.json
 https://fr.openfoodfacts.org/categorie/chocolats-noirs-aux-feves-de-cacao.json
-https://fr.openfoodfacts.org/categorie/pizzas-a-la-bolognaise.json
+https://fr.openfoodfacts.org/categorie/pizzas.json
 https://fr.openfoodfacts.org/categorie/liegeois.json
-https://fr.openfoodfacts.org/categorie/yaourts-aromatises.json
+https://fr.openfoodfacts.org/categorie/yaourts-natures.json
 https://fr.openfoodfacts.org/categorie/steaks-de-boeuf.json
+https://fr.openfoodfacts.org/categorie/escalopes-de-poulet.json
 https://fr.openfoodfacts.org/categorie/cereales-au-chocolat.json
-https://fr.openfoodfacts.org/categorie/legumineuses-en-conserve.json
-https://fr.openfoodfacts.org/categorie/speculoos.json
+https://fr.openfoodfacts.org/categorie/haricots-verts.json
+https://fr.openfoodfacts.org/categorie/biscuits-secs.json
 https://fr.openfoodfacts.org/categorie/chips-de-pommes-de-terre.json
+https://fr.openfoodfacts.org/categorie/prefous.json
