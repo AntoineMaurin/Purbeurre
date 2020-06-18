@@ -3,6 +3,10 @@
   box-shadow: $box-shadow;
   background-color: rgba(232, 167, 93, .5);
   transition: background-color 0.2s ease;
+  .nav-icon {
+    height: 70px;
+    margin-right: 5px;
+  }
   .navbar-brand {
     font-family: $font-family-title;
     color: $gray-900;

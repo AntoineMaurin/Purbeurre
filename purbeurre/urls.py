@@ -15,16 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from purbeurre import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage),
+    path('', include('favourites.urls')),
     path('results', views.search),
     path('account', views.accountpage),
     path('product/<int:id>', views.productpage),
-    path('save/<int:id>', views.save),
-    path('remove/<int:id>', views.remove),
-    path('myfood', views.myfoodpage),
     path('accounts/', include('accounts.urls')),
 ]

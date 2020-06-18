@@ -30,7 +30,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ['ENV'] == 'production' else True
 
-ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1', 'testserver']
 
 # Application definition
 INSTALLED_APPS = [
@@ -138,4 +138,5 @@ LOGIN_URL = '/accounts/login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-django_heroku.settings(locals())
+if os.environ['ENV'] == 'production':
+    django_heroku.settings(locals())

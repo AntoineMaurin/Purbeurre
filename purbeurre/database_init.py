@@ -4,8 +4,8 @@ import json
 from purbeurre.models import Product, Category
 
 class DatabaseInit:
-    def __init__(self):
-        urls_file = open("purbeurre/off_urls.txt", "r")
+    def __init__(self, file):
+        urls_file = open(file, "r")
         self.urls = [(line.strip()) for line in urls_file.readlines()]
         print(self.urls)
 
