@@ -3,7 +3,7 @@ from django.test import TestCase
 from accounts.views import *
 
 
-class ProductsTest(TestCase):
+class AccountsUrlsTest(TestCase):
 
     def test_register_url_is_resolved(self):
         url = reverse(register)

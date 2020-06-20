@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserRegisterForm, UserLoginForm
+from accounts.forms import UserRegisterForm, UserLoginForm
 
 def register(request):
     if request.method == 'POST':
@@ -31,7 +31,6 @@ def register(request):
                 user = User.objects.create_user(username=email,
                                                 email=email,
                                                 password=password1)
-                # username = email.split("@")[0]
                 messages.success(request, "Compte créé ! "
                                  "Bienvenue {}".format(email))
                 form = UserLoginForm()
