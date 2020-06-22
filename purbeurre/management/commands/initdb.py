@@ -26,5 +26,3 @@ class Command(BaseCommand):
             d.request()
         except(FileNotFoundError):
             print('File not found, see the help : ', self.help)
-        else:
-            print(self.help)

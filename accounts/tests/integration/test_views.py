@@ -46,7 +46,7 @@ class AccountsViewsTest(TestCase):
             'pw2': 'wrongconfirm'
         })
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertEquals(User.objects.count(), 0)
         self.assertTemplateUsed(response, 'registration.html')
         self.failUnless(isinstance(response.context['form'], UserRegisterForm))
@@ -65,7 +65,7 @@ class AccountsViewsTest(TestCase):
             'password': 'testtest'
         })
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, '/')
 
         user = auth.get_user(self.client)
@@ -85,7 +85,7 @@ class AccountsViewsTest(TestCase):
             'password': 'wrongpassword'
         })
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'login.html')
 
         user = auth.get_user(self.client)
@@ -94,7 +94,7 @@ class AccountsViewsTest(TestCase):
     def test_logout_post(self):
         """Creates account, connect, and disconnect to check the efficiency of
         the logout view"""
-        
+
         self.client.post('/accounts/register', {
             'email': 'test@test.com',
             'pw1': 'testtest',
