@@ -26,11 +26,8 @@ class PurbeurreViewsTest(TestCase):
         self.product = self.create_product()
 
     def create_product(self):
-        Category.objects.create(name='pates a tartiner aux noisettes '
+        category = Category.objects.create(name='pates a tartiner aux noisettes '
                                      'et au cacao')
-
-        category = Category.objects.get(name='pates a tartiner aux noisettes '
-                                             'et au cacao')
 
         Product.objects.create(name='Pâte à tartiner - Gerblé - 220g',
                                nutriscore='a',
@@ -81,6 +78,6 @@ class PurbeurreViewsTest(TestCase):
     def test_search(self):
 
         response = self.client.get('/results?user_search=nutella')
-        
+
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'results.html')

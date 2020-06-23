@@ -27,11 +27,8 @@ class FavouritesViewsTest(TestCase):
         self.product = self.create_product()
 
     def create_product(self):
-        Category.objects.create(name='pates a tartiner aux noisettes '
+        category = Category.objects.create(name='pates a tartiner aux noisettes '
                                      'et au cacao')
-
-        category = Category.objects.get(name='pates a tartiner aux noisettes '
-                                             'et au cacao')
 
         Product.objects.create(name='Pâte à tartiner - Gerblé - 220g',
                                nutriscore='a',

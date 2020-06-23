@@ -89,9 +89,9 @@ class AccountsViewsTest(TestCase):
         self.assertTemplateUsed(response, 'login.html')
 
         user = auth.get_user(self.client)
-        self.assertEquals(user.is_authenticated, False)
+        self.assertFalse(user.is_authenticated)
 
-    def test_logout_post(self):
+    def test_logout(self):
         """Creates account, connect, and disconnect to check the efficiency of
         the logout view"""
 
@@ -108,8 +108,8 @@ class AccountsViewsTest(TestCase):
         })
 
         user = auth.get_user(self.client)
-        self.assertEquals(user.is_authenticated, True)
+        self.assertTrue(user.is_authenticated)
 
         response = self.client.get('/accounts/logout')
         disconnected_user = auth.get_user(self.client)
-        self.assertEquals(disconnected_user.is_authenticated, False)
+        self.assertFalse(disconnected_user.is_authenticated)
