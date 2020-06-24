@@ -1,6 +1,5 @@
 from django.urls import path
 from favourites import views
-from favourites import views
 
 urlpatterns = [
     path('save/<int:id>', views.save),

@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from accounts.forms import UserRegisterForm, UserLoginForm
+from accounts.register_management import RegisterManagement
+
 
 def register(request):
     if request.method == 'POST':
@@ -13,32 +15,23 @@ def register(request):
             password1 = form.cleaned_data.get('pw1')
             password2 = form.cleaned_data.get('pw2')
 
-            if User.objects.filter(email=email).exists():
-                messages.error(request, "Cet email est déjà utilisé.")
-                form = UserRegisterForm(request.POST)
-                return render(request, "registration.html", {'form': form})
-            elif password1 != password2:
-                messages.error(request, "Les mots de passe ne correspondent"
-                               " pas.")
-                form = UserRegisterForm(request.POST)
-                return render(request, "registration.html", {'form': form})
-            elif len(password1) < 6:
-                messages.warning(request, "Ce mot de passe est trop court,"
-                                " il doit comporter au moins 6 caractères.")
+            rm = RegisterManagement(email=email, pw1=password1, pw2=password2)
+            message = rm.analyze()
+            if message[0] == 'error':
+                messages.error(request, message[1])
                 form = UserRegisterForm(request.POST)
                 return render(request, "registration.html", {'form': form})
             else:
-                user = User.objects.create_user(username=email,
-                                                email=email,
-                                                password=password1)
-                messages.success(request, "Compte créé ! "
-                                 "Bienvenue {}".format(email))
+                User.objects.create_user(username=email,
+                                         email=email,
+                                         password=password1)
+                messages.success(request, message[1])
                 form = UserLoginForm()
                 return render(request, "login.html", {'form': form})
-
     else:
         form = UserRegisterForm()
         return render(request, "registration.html", {'form': form})
+
 
 def user_login(request):
 
@@ -58,6 +51,7 @@ def user_login(request):
     else:
         form = UserLoginForm()
         return render(request, "login.html", {'form': form})
+
 
 def user_logout(request):
     logout(request)

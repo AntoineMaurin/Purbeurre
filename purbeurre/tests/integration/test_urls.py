@@ -1,6 +1,6 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from purbeurre.views import *
+from purbeurre.views import homepage, search, accountpage, productpage
 
 
 class ProductsTest(TestCase):

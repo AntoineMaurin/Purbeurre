@@ -1,6 +1,6 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from accounts.views import *
+from accounts.views import register, user_login, user_logout
 
 
 class AccountsUrlsTest(TestCase):

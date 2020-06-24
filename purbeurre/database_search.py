@@ -1,4 +1,4 @@
-from purbeurre.models import Product, Category
+from purbeurre.models import Product
 from django.db.models import Q
 from collections import Counter
 
@@ -9,11 +9,11 @@ class DatabaseSearch:
         cat_subs_list = []
         categories = self.get_categories_from_search(search)
 
-        if categories == None:
+        if categories is None:
             return None
         else:
             for i, cat in enumerate(categories.keys()):
-                cat_subs_list.append({cat : []})
+                cat_subs_list.append({cat: []})
                 rq = Product.objects.filter(category__name=cat).order_by(
                     'nutriscore'
                     )[:6]
@@ -28,7 +28,6 @@ class DatabaseSearch:
                                           | Q(name__contains=search.lower()))
 
         return self.keep_only_real_categories(products)
-
 
     def keep_only_real_categories(self, products):
         categories_list = []

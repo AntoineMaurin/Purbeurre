@@ -1,8 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from purbeurre.models import Product, Category
-from favourites.models import Favourite
-from accounts.views import *
 
 
 class PurbeurreViewsTest(TestCase):
@@ -16,7 +14,7 @@ class PurbeurreViewsTest(TestCase):
         })
         self.assertEquals(User.objects.count(), 1)
 
-        response = self.client.post('/accounts/login', {
+        self.client.post('/accounts/login', {
             'username': 'test@test.com',
             'password': 'testtest'
         })
@@ -26,8 +24,8 @@ class PurbeurreViewsTest(TestCase):
         self.product = self.create_product()
 
     def create_product(self):
-        category = Category.objects.create(name='pates a tartiner aux noisettes '
-                                     'et au cacao')
+        category = Category.objects.create(name='pates a tartiner aux '
+                                                'noisettes et au cacao')
 
         Product.objects.create(name='Pâte à tartiner - Gerblé - 220g',
                                nutriscore='a',

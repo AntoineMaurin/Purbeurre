@@ -1,8 +1,6 @@
-from django.test import TestCase, RequestFactory, Client
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from accounts.forms import UserRegisterForm, UserLoginForm
-from accounts.views import *
-from django.urls import reverse
 from django.contrib import auth
 
 
@@ -53,12 +51,9 @@ class AccountsViewsTest(TestCase):
 
     def test_login_success_post(self):
 
-        self.client.post('/accounts/register', {
-            'email': 'test@test.com',
-            'pw1': 'testtest',
-            'pw2': 'testtest'
-        })
-        self.assertEquals(User.objects.count(), 1)
+        User.objects.create_user(username='test@test.com',
+                                 email='test@test.com',
+                                 password='testtest')
 
         response = self.client.post('/accounts/login', {
             'username': 'test@test.com',
@@ -73,12 +68,9 @@ class AccountsViewsTest(TestCase):
 
     def test_login_fails_post(self):
 
-        self.client.post('/accounts/register', {
-            'email': 'test@test.com',
-            'pw1': 'testtest',
-            'pw2': 'testtest'
-        })
-        self.assertEquals(User.objects.count(), 1)
+        User.objects.create_user(username='test@test.com',
+                                 email='test@test.com',
+                                 password='testtest')
 
         response = self.client.post('/accounts/login', {
             'username': 'test@test.com',
@@ -95,14 +87,11 @@ class AccountsViewsTest(TestCase):
         """Creates account, connect, and disconnect to check the efficiency of
         the logout view"""
 
-        self.client.post('/accounts/register', {
-            'email': 'test@test.com',
-            'pw1': 'testtest',
-            'pw2': 'testtest'
-        })
-        self.assertEquals(User.objects.count(), 1)
+        User.objects.create_user(username='test@test.com',
+                                 email='test@test.com',
+                                 password='testtest')
 
-        response = self.client.post('/accounts/login', {
+        self.client.post('/accounts/login', {
             'username': 'test@test.com',
             'password': 'testtest'
         })
@@ -110,6 +99,6 @@ class AccountsViewsTest(TestCase):
         user = auth.get_user(self.client)
         self.assertTrue(user.is_authenticated)
 
-        response = self.client.get('/accounts/logout')
+        self.client.get('/accounts/logout')
         disconnected_user = auth.get_user(self.client)
         self.assertFalse(disconnected_user.is_authenticated)

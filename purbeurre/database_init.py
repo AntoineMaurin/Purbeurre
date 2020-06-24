@@ -3,6 +3,7 @@ import json
 
 from purbeurre.models import Product, Category
 
+
 class DatabaseInit:
     def __init__(self, file):
         urls_file = open(file, "r")
@@ -56,14 +57,14 @@ class DatabaseInit:
                         product.save()
 
     def build_product(self, dict):
-        categories_list = []
         name = self.get_basic_data('product_name_fr', dict)
         nutri = self.get_basic_data('nutrition_grade_fr', dict)
         image_front_url = self.get_basic_data('image_front_url', dict)
         url_off = self.get_basic_data('url', dict)
         sugars_100g = self.get_nutriments_data('sugars_100g', dict)
         salt_100g = self.get_nutriments_data('salt_100g', dict)
-        saturated_fat_100g = self.get_nutriments_data('saturated-fat_100g', dict)
+        saturated_fat_100g = self.get_nutriments_data('saturated-fat_100g',
+                                                      dict)
         fat_100g = self.get_nutriments_data('fat_100g', dict)
 
         return Product(name=name,
@@ -78,7 +79,7 @@ class DatabaseInit:
     def get_basic_data(self, key, dict):
         if key in dict:
             return dict[key].replace('\n', "").lower()
-        elif key not in dict and key == 'nutrition_grade_fr'   :
+        elif key not in dict and key == 'nutrition_grade_fr':
             return "N"
         else:
             return "Nom inconnu"

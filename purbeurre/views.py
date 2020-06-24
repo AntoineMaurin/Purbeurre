@@ -1,9 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from purbeurre.database_search import DatabaseSearch
-from purbeurre.models import Product, Category
-from accounts import views
-from django.http import HttpResponse
+from purbeurre.models import Product
 
 
 def search(request):
@@ -19,12 +17,15 @@ def search(request):
     else:
         return render(request, "home.html")
 
+
 def productpage(request, id):
     product = Product.objects.get(id=id)
     return render(request, "product_page.html", {'product': product})
 
+
 def homepage(request):
     return render(request, "home.html")
+
 
 @login_required
 def accountpage(request):

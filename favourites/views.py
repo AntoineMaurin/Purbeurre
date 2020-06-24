@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from purbeurre.models import Product, Category
+from purbeurre.models import Product
 from favourites.models import Favourite
 from django.contrib import messages
 
@@ -20,6 +20,7 @@ def save(request, id):
         messages.info(request, "Ce produit est déjà dans votre liste !")
 
     return redirect(request.META['HTTP_REFERER'])
+
 
 @login_required
 def remove(request, id):

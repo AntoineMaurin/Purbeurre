@@ -1,6 +1,6 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from favourites.views import *
+from favourites.views import save, remove, myfoodpage
 
 
 class FavouritesUrlsTest(TestCase):
