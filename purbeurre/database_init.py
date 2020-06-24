@@ -5,6 +5,8 @@ from purbeurre.models import Product, Category
 
 
 class DatabaseInit:
+    """This class's job is to fill the database with a given file of urls of
+    openfoodfacts categories of products."""
     def __init__(self, file):
         urls_file = open(file, "r")
         self.urls = [(line.strip()) for line in urls_file.readlines()]
@@ -31,6 +33,9 @@ class DatabaseInit:
         return json_response
 
     def request(self):
+        """For every url in the file, this method adds the category itself
+        in database, and loops throught the pages to get each product and add
+        it in database."""
         for url in self.urls:
             category_name = self.get_category_from_url(url)
             # print(category_name)

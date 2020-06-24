@@ -5,6 +5,10 @@ from purbeurre.models import Product
 
 
 def search(request):
+    """This method sends the user search to the DatabaseSearch class,
+    then calls the get_substitutes_per_category() methos on its instance,
+    and returns the categories concerned and the best products within them
+    to the results template, if the search is longer than 1 letter."""
     if len(request.GET.get('user_search')) > 1:
         user_search = request.GET.get('user_search')
         dbs = DatabaseSearch()

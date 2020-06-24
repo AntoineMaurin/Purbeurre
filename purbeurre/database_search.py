@@ -4,8 +4,14 @@ from collections import Counter
 
 
 class DatabaseSearch:
+    """This class's job is to find categories concerned by the user research
+    and return the best products (in terms of nutri-score) of each category."""
 
     def get_substitutes_per_category(self, search):
+        """This method gets the list of concerned categories from the
+        get_categories_from_search() method, and if it's not empty,
+        builds a list of dictionnaries where each one has the category's name
+        as key and a list of the 6 best products as value."""
         cat_subs_list = []
         categories = self.get_categories_from_search(search)
 
@@ -30,6 +36,12 @@ class DatabaseSearch:
         return self.keep_only_real_categories(products)
 
     def keep_only_real_categories(self, products):
+        """It can happen that a user's search contains a word that is in
+        a product that has nothing to do with the intended research, so this is
+        why this method is here : it deletes categories where the product was
+        found too few times compared to the category where it was the most
+        present. Actually, the decision ratio if a category is deleted or not
+        is 10%."""
         categories_list = []
 
         # For each product, adds its category name to a list
