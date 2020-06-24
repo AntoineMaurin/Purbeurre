@@ -1,0 +1,19 @@
+{
+  "name": "purbeurre",
+  "version": "1.0.0",
+  "description": "Projet 8 - Purbeurre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntoineMaurin/Purbeurre.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntoineMaurin/Purbeurre/issues"
+  },
+  "homepage": "https://github.com/AntoineMaurin/Purbeurre#readme"
+}

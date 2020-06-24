@@ -62,30 +62,32 @@
           <img src="{% static 'dist/assets/img/nutriscore/nutri-E.PNG' %}">
         {% endif %}
       </div>
-      <div class="col-lg-4 my-5 ml-5">
+      <div class="col-lg-4 my-5 ml-5 text-center">
           <h3 class="text-rooibos">Repères nutritionnels pour 100g</h3>
-          <div class="text-rooibos nutrition-infos ml-2 mt-4">
-            {% if product.fat_100g <= 3 %}
-              <i class="far fa-check-circle"></i> {{ product.fat_100g }}g Matières grasses / lipides<br>
-            {% else %}
-              <i class="far fa-times-circle"></i> {{ product.fat_100g }}g Matières grasses / lipides<br>
-            {% endif %}
-            {% if product.saturated_fat_100g <= 5 %}
-              <i class="far fa-check-circle"></i> {{ product.saturated_fat_100g }}g Acides gras saturés<br>
-            {% else %}
-              <i class="far fa-times-circle"></i> {{ product.saturated_fat_100g }}g Acides gras saturés<br>
-            {% endif %}
-            {% if product.sugars_100g <= 12.5 %}
-              <i class="far fa-check-circle"></i> {{ product.sugars_100g }}g Sucres<br>
-            {% else %}
-              <i class="far fa-times-circle"></i> {{ product.sugars_100g }}g Sucres<br>
-            {% endif %}
-            {% if product.salt_100g <= 1.5 %}
-              <i class="far fa-check-circle"></i> {{ product.salt_100g }}g Sel<br>
-            {% else %}
-              <i class="far fa-times-circle"></i> {{ product.salt_100g }}g Sel<br>
-            {% endif %}
+          <div class="nutrition-infos mt-4">
+            <div class="text-rooibos">
+              {% if product.fat_100g <= 3 %}
+                <i class="far fa-check-circle"></i> {{ product.fat_100g }}g Matières grasses / lipides<br>
+              {% else %}
+                <i class="far fa-times-circle"></i> {{ product.fat_100g }}g Matières grasses / lipides<br>
+              {% endif %}
+              {% if product.saturated_fat_100g <= 5 %}
+                <i class="far fa-check-circle"></i> {{ product.saturated_fat_100g }}g Acides gras saturés<br>
+              {% else %}
+                <i class="far fa-times-circle"></i> {{ product.saturated_fat_100g }}g Acides gras saturés<br>
+              {% endif %}
+              {% if product.sugars_100g <= 12.5 %}
+                <i class="far fa-check-circle"></i> {{ product.sugars_100g }}g Sucres<br>
+              {% else %}
+                <i class="far fa-times-circle"></i> {{ product.sugars_100g }}g Sucres<br>
+              {% endif %}
+              {% if product.salt_100g <= 1.5 %}
+                <i class="far fa-check-circle"></i> {{ product.salt_100g }}g Sel<br>
+              {% else %}
+                <i class="far fa-times-circle"></i> {{ product.salt_100g }}g Sel<br>
+              {% endif %}
 
+            </div>
           </div>
       </div>
     </div>

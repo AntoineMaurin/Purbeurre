@@ -10055,7 +10055,7 @@ form input.btn {
   color: #212529;
 }
 #mainNav h1 {
-  margin-right: 150px;
+  margin-right: 0;
 }
 #mainNav .navbar-nav .nav-item form input {
   background-color: #AAA;
@@ -10087,6 +10087,9 @@ form input.btn {
 @media (min-width: 992px) {
   #mainNav {
     background-color: transparent;
+  }
+  #mainNav h1 {
+    margin-right: 150px;
   }
 }
 #mainNav .navbar-brand {
@@ -10337,10 +10340,23 @@ header.masthead form button:default {
 }
 
 .nutrition-infos {
+  width: 600px;
   text-align: left;
   font-size: 20px;
 }
 
+@media (max-width: 1199.98px) {
+  .nutrition-infos {
+    width: 50%;
+    margin: auto;
+  }
+}
+@media (max-width: 767.98px) {
+  .nutrition-infos {
+    width: 90%;
+    margin: auto;
+  }
+}
 .classic-footer, .absolute-footer {
   background-color: #DE9440;
 }
@@ -10357,6 +10373,7 @@ header.masthead form button:default {
 
 .user-footer {
   background-color: #86EBE6;
+  margin-top: 0 !important;
 }
 .user-footer a {
   color: #86EBE6;
@@ -10374,8 +10391,15 @@ header.masthead form button:default {
 }
 
 .absolute-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  margin-top: 80px;
+}
+
+@media (min-width: 992px) {
+  .absolute-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

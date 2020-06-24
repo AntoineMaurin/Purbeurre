@@ -13,6 +13,7 @@
 }
 .user-footer {
   background-color: $rigolo;
+  margin-top: 0 !important;
   a {
   color: $rigolo;
   font-size: 18px;
@@ -28,8 +29,15 @@
   margin: 10px;
 }
 .absolute-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  margin-top: 80px;
+}
+
+@include media-breakpoint-up(lg) {
+  .absolute-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

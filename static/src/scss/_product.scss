@@ -90,6 +90,21 @@
 }
 
 .nutrition-infos {
+  width: 600px;
   text-align: left;
   font-size: 20px;
+}
+
+@include media-breakpoint-down(lg) {
+  .nutrition-infos {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .nutrition-infos {
+    width: 90%;
+    margin: auto;
+  }
 }

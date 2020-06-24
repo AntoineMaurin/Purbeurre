@@ -12,7 +12,7 @@
     color: $gray-900;
   }
   h1 {
-    margin-right: 150px
+    margin-right: 0
   }
   .navbar-nav {
     .nav-item {
@@ -48,6 +48,11 @@
   }
   @include media-breakpoint-up(lg) {
     // Base styling for the navbar - screen sizes greater than the large breakpoint
+  #mainNav {
+    }
+    h1 {
+      margin-right: 150px
+    }
     background-color: transparent;
     }
     .navbar-brand {
