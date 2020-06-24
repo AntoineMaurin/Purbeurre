@@ -11,30 +11,68 @@ Le site utilise des produits de l'API Openfoodfacts (https://fr.openfoodfacts.or
 # Fonctionnement
 La base de données (postgresql) étant limitée à 10.000 lignes sur l'hébergement sur heroku, le site ne permet pas d'intéragir avec la totalité des produits de l'API Openfoodfacts.
 Les produits inclus dans le projets sont donc récupérés dans les catégories suivantes : 
--pates a tartiner au chocolat
--chocolats noirs aux feves de cacao
--pizzas a la bolognaise
+
+-pates a tartiner aux noisettes et au cacao
+
+-pizzas au chorizo
+
 -liegeois
--yaourts aromatises
+
+-yaourts nature
+
 -steaks de boeuf
--cereales au chocolat
--legumineuses-en-conserve
--speculoos
--chips-de-pommes-de-terre
 
-Lorsque vous effectuez une recherche de produit, le serveur va chercher dans quelle(s) catégorie(s) se trouve(nt) l'aliment recherché, puis vous affiche, sur la page de résultats, les six produits les plus sains en terme de nutriscore pour chaque catégorie correspondante trouvée.
-Vous pouvez cliquer sur le nom d'un produit pour accéder à une page qui affiche les repères nutritionnels pour 100g, le nutriscore et le lien de la page produit sur le site d'Openfoodfacts pour encore plus d'informations.
+-escalopes de poulet
 
-Sur la page de résultats, en dessous de chaque produit, vous avez la possibilité de sauvegardé des aliments dans vos favoris, que vous pouvez retrouver dans l'onget avec l'icone de carrotte, si vous êtes connecté.
+-corn flakes
+
+-haricot verts
+
+-biscuits sablés
+
+-chips a l'ancienne
+
+-prefous
+
+Lorsque vous effectuez une recherche de produit, le serveur va chercher dans quelles catégories se trouvent l'aliment recherché, votre recherche peut concerner plusieurs catégories ,puis vous affiche sur la page de résultats les six produits les plus sains en terme de nutriscore pour chaque catégorie correspondante trouvée.
+
+Vous pouvez cliquer sur un produit pour accéder à sa page, qui affiche les repères nutritionnels pour 100g, le nutriscore et le lien de la page produit sur le site d'Openfoodfacts pour encore plus d'informations.
+
+Sur la page de résultats, en dessous de chaque produit, vous avez la possibilité de sauvegarder des aliments dans vos favoris, que vous pouvez retrouver dans l'onget avec l'icone de carrotte, si vous êtes connecté.
 
 # Utilisation
 
 Pour effectuer une recherche, entrez le nom d'un aliment dans le formulaire central si vous êtes sur la page d'accueil, ou celui dans la navbar si vous êtes ailleurs, cela vous mènera à la page de résultats.
 
-La seule condition d'utilisation concerne la fonctionnalité d'enregistrement de produits en favoris, qui requiert d'être authentifié, et donc la création d'un compte.
+La seule condition d'utilisation concerne la fonctionnalité d'enregistrement de produits en favoris, qui requiert d'être authentifié.
 
 # Installation
 
 Si vous êtes simple utilisateur, vous pouvez vous rendre sur le site du projet à l'adresse suivante : https://healthy-food-project.herokuapp.com/
 
-Si vous êtes curieux et que vous voulez essayer le projet chez vous, suivez ces instructions : 
+Si vous voulez installer le projet chez vous, il vous faut python (version 3.6.5):
+
+https://www.python.org/downloads/
+
+Une fois installé, forkez ce repo dans votre espace github (bouton fork en haut à droite), puis clonez le sur votre machine à l'aide du bouton vert "Clone".
+
+Maintenant, le projet est sur votre ordinateur, vous devez installer les dépendances pour le faire fonctionner.
+Pour cela, il vous faut un gestionnaire de paquets, tel que pip : https://pip.pypa.io/en/stable/installing/
+
+Ouvrez un terminal si ce n'est pas déjà fait et rendez-vous dans votre dossier d'installation, à l'endroit où se trouve le fichier "requirements.txt".
+Une fois au bon endroit, lancez la commande :
+```pip install requirements.txt```
+Cela installe ce dont le projet a besoin pour fonctionner.
+
+Il ne vous reste maintenant plus qu'à remplir la base de données, et lancer le serveur pour utiliser le projet en local.
+Pour remplir la base de données, assurez-vous d'être à l'endroit où se trouve le fichier manage.py (normalement au même endroit que requirements.txt) et lancez la commande :
+
+```python manage.py initdb off_urls.txt```
+
+Cela va donc remplir la base de données avec les catégories que contient le fichier off_urls.txt. Vous pouvez évidemment le modifier à volonté. Avec les catégories actuelles, il y a en tout autour de 5000 produits, et le remplissage prend environ 1.30min.
+
+Une fois terminé, vous n'avez plus qu'à lancer le serveur django : 
+```python manage.py runserver```
+
+Vous pouvez désormais utiliser le projet en local, généralement à l'adresse ```127.0.0.1:8000```
+
