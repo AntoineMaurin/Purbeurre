@@ -114,4 +114,10 @@
 </section>
 {% endblock main_content %}
 
-{% block footer_class %}classic-footer{% endblock footer_class %}
+{% block footer_class %}
+  {% if subs_per_category %}
+    classic-footer
+  {% else %}
+    absolute-footer
+  {% endif %}
+{% endblock footer_class %}

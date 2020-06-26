@@ -31,6 +31,10 @@ def homepage(request):
     return render(request, "home.html")
 
 
+def legaldisclaimerpage(request):
+    return render(request, "legal_disclaimer.html")
+
+
 @login_required
 def accountpage(request):
     return render(request, "my_account.html")

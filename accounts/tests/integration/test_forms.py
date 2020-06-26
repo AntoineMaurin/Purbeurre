@@ -1,5 +1,6 @@
 from accounts.forms import UserRegisterForm, UserLoginForm
 from django.test import TestCase, Client
+from django.contrib.auth.models import User
 
 
 class AccountsFormsTest(TestCase):
@@ -22,11 +23,10 @@ class AccountsFormsTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_login_valid_data(self):
-        self.client.post('/accounts/register', {
-            'email': 'thetest@test.com',
-            'pw1': 'testtest',
-            'pw2': 'testtest'
-        })
+
+        User.objects.create_user(username='thetest@test.com',
+                                 email='thetest@test.com',
+                                 password='testtest')
 
         form = UserLoginForm(data={
             'username': 'thetest@test.com',

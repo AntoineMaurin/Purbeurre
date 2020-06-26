@@ -1,6 +1,7 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from purbeurre.views import homepage, search, accountpage, productpage
+from purbeurre.views import homepage, search, accountpage, productpage, \
+    legaldisclaimerpage
 
 
 class ProductsTest(TestCase):
@@ -16,6 +17,10 @@ class ProductsTest(TestCase):
     def test_account_url_is_resolved(self):
         url = reverse(accountpage)
         self.assertEqual(resolve(url).func, accountpage)
+
+    def test_legal_disclaimer_url_is_resolved(self):
+        url = reverse(legaldisclaimerpage)
+        self.assertEqual(resolve(url).func, legaldisclaimerpage)
 
     def test_product_url_is_resolved(self):
         url = reverse(productpage, args=[35067])

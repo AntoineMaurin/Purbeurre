@@ -7,19 +7,14 @@ class PurbeurreViewsTest(TestCase):
 
     def setUp(self):
         self.client = Client()
-        self.client.post('/accounts/register', {
-            'email': 'test@test.com',
-            'pw1': 'testtest',
-            'pw2': 'testtest'
-        })
-        self.assertEquals(User.objects.count(), 1)
+        self.user = User.objects.create_user(username='test@test.com',
+                                             email='test@test.com',
+                                             password='testtest')
 
         self.client.post('/accounts/login', {
             'username': 'test@test.com',
             'password': 'testtest'
         })
-
-        self.user = User.objects.get(username='test@test.com')
 
         self.product = self.create_product()
 
@@ -57,7 +52,7 @@ class PurbeurreViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'home.html')
 
-    def test_account_page_if_auth(self):
+    def test_account_page(self):
 
         response = self.client.get('/account')
 
@@ -66,7 +61,7 @@ class PurbeurreViewsTest(TestCase):
 
     def test_account_page_if_not_auth(self):
 
-        response = self.client.get('/accounts/logout')
+        self.client.get('/accounts/logout')
 
         response = self.client.get('/account')
 
@@ -79,3 +74,10 @@ class PurbeurreViewsTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'results.html')
+
+    def test_legaldisclaimerpage(self):
+
+        response = self.client.get('/legal')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'legal_disclaimer.html')

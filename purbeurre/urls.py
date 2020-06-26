@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('favourites.urls')),
     path('results', views.search),
     path('account', views.accountpage),
+    path('legal', views.legaldisclaimerpage),
     path('product/<int:id>', views.productpage),
     path('accounts/', include('accounts.urls')),
 ]

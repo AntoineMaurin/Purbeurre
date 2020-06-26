@@ -1,9 +1,7 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
-# from favourites.views import save, remove, myfoodpage
 from purbeurre.models import Product, Category
 from favourites.models import Favourite
-from django.contrib.auth import authenticate
 
 
 class FavouritesViewsAuthTest(TestCase):
@@ -47,8 +45,6 @@ class FavouritesViewsAuthTest(TestCase):
 
     def test_save_if_auth(self):
 
-        self.user = authenticate(username='test@test.com', password='testtest')
-
         response = self.client.get('/save/{}'.format(self.product.id),
                                    HTTP_REFERER='/results?user_search=nutella')
         self.assertEquals(response.status_code, 302)
@@ -58,10 +54,9 @@ class FavouritesViewsAuthTest(TestCase):
         self.assertEquals(f.count(), 1)
 
     def test_remove(self):
-        """This test creates a product and its category, adds them in test
-        database, then adds it to our user's favourites, asserts that he now
-        has this one product in favourites, then removes it and asserts that
-        the user has no longer this product in his favourites. """
+        """This test adds a product to our user's favourites then removes it
+        and asserts that the user has no longer this product in his favourites.
+        """
 
         Favourite.objects.create(user=self.user, product=self.product)
 
@@ -76,8 +71,6 @@ class FavouritesViewsAuthTest(TestCase):
         self.assertRedirects(response, '/myfood')
 
     def test_my_food_page(self):
-
-        self.user = authenticate(username='test@test.com', password='testtest')
 
         response = self.client.get('/myfood')
 
