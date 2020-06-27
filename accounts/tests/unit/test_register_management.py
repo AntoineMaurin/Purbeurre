@@ -18,8 +18,8 @@ class RegisterManagementTest(TestCase):
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
         response = rm.analyze()
-        assert response[0] == 'error'
-        assert response[1] == 'Cet email est déjà utilisé'
+        self.assertEquals(response[0], 'error')
+        self.assertEquals(response[1], 'Cet email est déjà utilisé')
 
     def test_passwords_not_matching(self):
         data = {
@@ -30,9 +30,9 @@ class RegisterManagementTest(TestCase):
         rm = RegisterManagement(email=data['email'],
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
-        response = rm.analyze()
-        assert response[0] == 'error'
-        assert response[1] == 'Les mots de passe ne correspondent pas'
+        resp = rm.analyze()
+        self.assertEquals(resp[0], 'error')
+        self.assertEquals(resp[1], 'Les mots de passe ne correspondent pas')
 
     def test_password_too_short(self):
         data = {
@@ -44,9 +44,9 @@ class RegisterManagementTest(TestCase):
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
         response = rm.analyze()
-        assert response[0] == 'error'
-        assert response[1] == ("Ce mot de passe est trop court, "
-                               "il doit comporter au moins 6 caractères.")
+        self.assertEquals(response[0], 'error')
+        self.assertEquals(response[1], ("Ce mot de passe est trop court, il do"
+                                        "it comporter au moins 6 caractères."))
 
     def test_invalid_email(self):
         data = {
@@ -58,8 +58,8 @@ class RegisterManagementTest(TestCase):
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
         response = rm.analyze()
-        assert response[0] == 'error'
-        assert response[1] == "Email invalide"
+        self.assertEquals(response[0], 'error')
+        self.assertEquals(response[1], "Email invalide")
 
     def test_no_email(self):
         data = {
@@ -71,8 +71,8 @@ class RegisterManagementTest(TestCase):
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
         response = rm.analyze()
-        assert response[0] == 'error'
-        assert response[1] == "Email invalide"
+        self.assertEquals(response[0], 'error')
+        self.assertEquals(response[1], "Email invalide")
 
     def test_success(self):
         data = {
@@ -83,6 +83,6 @@ class RegisterManagementTest(TestCase):
         rm = RegisterManagement(email=data['email'],
                                 pw1=data['pw1'],
                                 pw2=data['pw2'])
-        response = rm.analyze()
-        assert response[0] == 'success'
-        assert response[1] == "Compte créé ! Bienvenue " + data['email']
+        r = rm.analyze()
+        self.assertEquals(r[0], 'success')
+        self.assertEquals(r[1], "Compte créé ! Bienvenue " + data['email'])

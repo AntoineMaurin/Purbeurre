@@ -11,8 +11,8 @@ class DatabaseSearchTest(TestCase):
 
     def test_simple_category_search(self):
         subs_per_category = self.dbs.get_substitutes_per_category('Nutella')
-        assert (
-            'pates a tartiner aux noisettes et au cacao' in
+        self.assertIn(
+            'pates a tartiner aux noisettes et au cacao',
             subs_per_category[0].keys()
             )
 
@@ -24,8 +24,8 @@ class DatabaseSearchTest(TestCase):
         subs_per_category = self.dbs.get_substitutes_per_category('chocolat')
 
         for i in range(len(subs_per_category)):
-            assert supposed_categories[i] in subs_per_category[i].keys()
+            self.assertIn(supposed_categories[i], subs_per_category[i].keys())
 
     def test_search_gives_no_results(self):
         result = self.dbs.get_substitutes_per_category('fsfklhsdflqj')
-        assert result is None
+        self.assertEquals(result, None)
