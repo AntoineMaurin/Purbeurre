@@ -61,8 +61,28 @@ Pour cela, il vous faut un gestionnaire de paquets, tel que pip : https://pip.py
 
 Ouvrez un terminal si ce n'est pas déjà fait et rendez-vous dans votre dossier d'installation, à l'endroit où se trouve le fichier "requirements.txt".
 Une fois au bon endroit, lancez la commande :
-```pip install requirements.txt```
-Cela installe ce dont le projet a besoin pour fonctionner.
+```pip install -r requirements.txt```
+Cela installe les dépendances dont le projet a besoin pour fonctionner.
+
+Vous devez également créer votre base de données postgresql ou en utiliser une existante.
+
+Pour faire connecter le projet avec votre base, vous devez créer un fichier nommé .env à la racine du projet, et y inclure les variables suivantes : 
+```
+SECRET_KEY = '<votre SECRET KEY>'
+ENV = 'development'
+DB_USER = '<utilisateur de votre base de données>'
+DB_PASSWORD = '<mot de passe utilisateur>'
+DB_HOST = '<Adresse de l'hôte>'
+DB_PORT= '<Port de votre base de données>'
+```
+Ainsi, les settings remplaceront les valeurs aux bons endroits.
+
+Maintenant, vous devez créer les tables de la base de données avant de la remplir : 
+Lancez les commandes :
+
+```python manage.py makemigrations```
+
+```python manage.py migrate```
 
 Il ne vous reste maintenant plus qu'à remplir la base de données, et lancer le serveur pour utiliser le projet en local.
 Pour remplir la base de données, assurez-vous d'être à l'endroit où se trouve le fichier manage.py (normalement au même endroit que requirements.txt) et lancez la commande :
@@ -71,7 +91,7 @@ Pour remplir la base de données, assurez-vous d'être à l'endroit où se trouv
 
 Cela va donc remplir la base de données avec les catégories que contient le fichier off_urls.txt. Vous pouvez évidemment le modifier à volonté. Avec les catégories actuelles, il y a en tout autour de 5000 produits, et le remplissage prend environ 1.30min.
 
-Une fois terminé, vous n'avez plus qu'à lancer le serveur django : 
+Une fois terminé,vous n'avez plus qu'à lancer le serveur django : 
 ```python manage.py runserver```
 
 Vous pouvez désormais utiliser le projet en local, généralement à l'adresse ```127.0.0.1:8000```
