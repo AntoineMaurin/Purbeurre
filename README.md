@@ -10,7 +10,7 @@ Le site utilise des produits de l'API Openfoodfacts (https://fr.openfoodfacts.or
 
 # Fonctionnement
 La base de données (postgresql) étant limitée à 10.000 lignes sur l'hébergement sur heroku, le site ne permet pas d'intéragir avec la totalité des produits de l'API Openfoodfacts.
-Les produits inclus dans le projets sont donc récupérés dans les catégories suivantes : 
+Les produits inclus dans le projets sont donc récupérés dans les catégories suivantes :
 
 -pates a tartiner aux noisettes et au cacao
 
@@ -66,7 +66,7 @@ Cela installe les dépendances dont le projet a besoin pour fonctionner.
 
 Vous devez également créer votre base de données postgresql ou en utiliser une existante.
 
-Pour faire connecter le projet avec votre base, vous devez créer un fichier nommé .env à la racine du projet, et y inclure les variables suivantes : 
+Pour faire connecter le projet avec votre base, vous devez créer un fichier nommé .env à la racine du projet, et y inclure les variables suivantes :
 ```
 SECRET_KEY = '<votre SECRET KEY>'
 ENV = 'development'
@@ -77,7 +77,7 @@ DB_PORT= '<Port de votre base de données>'
 ```
 Ainsi, les settings remplaceront les valeurs aux bons endroits.
 
-Maintenant, vous devez créer les tables de la base de données avant de la remplir : 
+Maintenant, vous devez créer les tables de la base de données avant de la remplir :
 Lancez les commandes :
 
 ```python manage.py makemigrations```
@@ -91,8 +91,12 @@ Pour remplir la base de données, assurez-vous d'être à l'endroit où se trouv
 
 Cela va donc remplir la base de données avec les catégories que contient le fichier off_urls.txt. Vous pouvez évidemment le modifier à volonté. Avec les catégories actuelles, il y a en tout autour de 5000 produits, et le remplissage prend environ 1.30min.
 
-Une fois terminé,vous n'avez plus qu'à lancer le serveur django : 
+Une fois terminé,vous n'avez plus qu'à lancer le serveur django :
 ```python manage.py runserver```
 
 Vous pouvez désormais utiliser le projet en local, généralement à l'adresse ```127.0.0.1:8000```
 
+Une dernière chose, le projet contient des tests, pour les lancer, utilisez la commande ```python manage.py test```
+
+Sachez par contre qu'il y a un test selenium, qui est effectué sur chrome, donc vous devez installer le chrome driver de votre version de chrome pour que ce test soit fonctionnel. Vous pouvez télécharger le ChromeDriver via ce lien : https://chromedriver.chromium.org/downloads,
+et placer l'executable dans ```purbeurre\tests\functionnal```
