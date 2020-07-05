@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 
 import os
 
+import django_heroku
+
 from purbeurre.settings import *
 
 load_dotenv()
@@ -9,6 +11,9 @@ load_dotenv()
 SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = False
+
+if os.environ['ALLOWED_HOSTS'] == '.herokuapps.com':
+    django_heroku.settings(locals())
 
 ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS']
 
