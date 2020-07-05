@@ -12,9 +12,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = False
 
-if os.environ['ALLOWED_HOSTS'] == '.herokuapps.com':
-    django_heroku.settings(locals())
-
 ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS']
 
 DATABASES = {
@@ -28,3 +25,5 @@ DATABASES = {
         'PORT': os.environ['DB_PORT'],
     }
 }
+
+django_heroku.settings(locals())
