@@ -20,9 +20,9 @@ class DatabaseSearch:
         else:
             for i, cat in enumerate(categories.keys()):
                 cat_subs_list.append({cat: []})
-                rq = Product.objects.filter(category__name=cat).order_by(
-                    'nutriscore'
-                    )[:6]
+                rq = Product.objects.filter(
+                     category__name=cat
+                     ).order_by('nutriscore')[:6]
                 for r in rq:
                     cat_subs_list[i][cat].append(r)
 
