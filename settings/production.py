@@ -10,7 +10,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['46.101.184.139']
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS']
 
 DATABASES = {
     'default': {
