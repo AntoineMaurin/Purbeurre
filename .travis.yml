@@ -6,7 +6,7 @@ before_script:
   - pip install -r requirements.txt
 
 env:
-  - DJANGO_SETTINGS_MODULE=settings.production
+  - DJANGO_SETTINGS_MODULE=settings.travis
 
 script:
-  - pwd dir python manage.py test
+  - python manage.py test
