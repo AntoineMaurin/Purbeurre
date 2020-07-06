@@ -7,6 +7,8 @@ before_script:
 
 env:
   - DJANGO_SETTINGS_MODULE=settings.travis
+  - sudo service postgresql status
+  - sudo netstat -nl | grep postgres
 
 script:
   - python manage.py test
