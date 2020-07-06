@@ -5,4 +5,3 @@ static/node_modules/
 __pycache__
 chromedriver.exe
 .coverage
-settings/production.py
