@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from purbeurre import views
 
+def trigger_sentry(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage),
@@ -26,4 +29,5 @@ urlpatterns = [
     path('legal', views.legaldisclaimerpage),
     path('product/<int:id>', views.productpage),
     path('accounts/', include('accounts.urls')),
+    path('sentry-error/', trigger_sentry),
 ]
