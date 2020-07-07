@@ -5,8 +5,13 @@ from purbeurre.models import Product, Category
 
 class PurbeurreChromeTest(StaticLiveServerTestCase):
     def setUp(self):
-        self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
-                                        'chromedriver')
+        try:
+            self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
+                                            'chromedriver_linux64')
+        except:
+            self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
+                                            'chromedriver')
+                                              
     def tearDown(self):
         self.browser.close()
 

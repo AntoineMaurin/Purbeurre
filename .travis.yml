@@ -7,6 +7,9 @@ before_script:
   - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip -d /home/travis/build/AntoineMaurin/Purbeurre/purbeurre/tests/functionnal
 
+before_install:
+  - google-chrome-stable --headless --no-sandbox
+
 env:
   - DJANGO_SETTINGS_MODULE=settings.travis
 
