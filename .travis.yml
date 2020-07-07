@@ -4,12 +4,18 @@ python:
 
 before_script:
   - pip install -r requirements.txt
+  - wget https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip -d /home/travis/build/AntoineMaurin/Purbeurre/purbeurre/tests/functionnal
 
 env:
   - DJANGO_SETTINGS_MODULE=settings.travis
-  
+
 services:
   - postgresql
+  
+addons:
+  chrome: stable
+
 
 script:
   - python manage.py test

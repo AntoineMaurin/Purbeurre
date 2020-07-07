@@ -1,6 +1,5 @@
 env/
 .env
-purbeurre/tests/functionnal/test_chrome.py
 static/node_modules/
 __pycache__
 chromedriver.exe
