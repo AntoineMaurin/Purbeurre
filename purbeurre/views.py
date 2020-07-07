@@ -3,6 +3,10 @@ from django.shortcuts import render
 from purbeurre.database_search import DatabaseSearch
 from purbeurre.models import Product
 
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 def search(request):
     """This method sends the user search to the DatabaseSearch class,
@@ -11,6 +15,12 @@ def search(request):
     to the results template, if the search is longer than 1 letter."""
     if len(request.GET.get('user_search')) > 1:
         user_search = request.GET.get('user_search')
+
+        logger.info('New search', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': request,
+        })
+        
         dbs = DatabaseSearch()
         subs_per_category = dbs.get_substitutes_per_category(user_search)
 
