@@ -5,12 +5,12 @@ from purbeurre.models import Product, Category
 
 class PurbeurreChromeTest(StaticLiveServerTestCase):
     def setUp(self):
-        self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
-                                        'chromedriver')
-
         chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
         chrome_options.add_argument("--no-sandbox")
 
+        self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
+                                        'chromedriver', chrome_options=chrome_options)
 
     def tearDown(self):
         self.browser.close()
