@@ -17,7 +17,7 @@ class Product(models.Model):
     saturated_fat_100g = models.FloatField(default=None)
     sugars_100g = models.FloatField(default=None)
     salt_100g = models.FloatField(default=None)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name

@@ -96,8 +96,16 @@ class DatabaseInit:
             return -1
 
     def delete_products(self):
-        q1 = Product.objects.all()
-        q1.delete()
+        products = Product.objects.all()
+        for product in products:
+            try:
+                product.delete()
+            except:
+                pass
 
-        q2 = Category.objects.all()
-        q2.delete()
+        categories = Category.objects.all()
+        for category in categories:
+            try:
+                category.delete()
+            except:
+                pass

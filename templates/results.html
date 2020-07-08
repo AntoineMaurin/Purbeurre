@@ -92,9 +92,9 @@
           {% if sub.name %}
             <div class="item-links">
               {% if sub.name|length > 35 %}
-                <a href="/product/{{ sub.id }}"><p>{{ sub.nutriscore }} {{ sub.name.capitalize|slice:":32" }}...</p></a>
+                <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize|slice:":32" }}...</p></a>
               {% else %}
-                <a href="/product/{{ sub.id }}"><p>{{ sub.nutriscore }} {{ sub.name.capitalize }}</p></a>
+                <a href="/product/{{ sub.id }}"><p>{{ sub.name.capitalize }}</p></a>
               {% endif %}
           {% else %}
             <div class="item-links">
