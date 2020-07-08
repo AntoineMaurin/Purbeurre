@@ -16,6 +16,5 @@ services:
 addons:
   chrome: stable
 
-
 script:
   - python manage.py test

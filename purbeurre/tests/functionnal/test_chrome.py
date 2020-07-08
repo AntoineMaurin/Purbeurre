@@ -12,9 +12,9 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=1920,1080")
 
-
         self.browser = webdriver.Chrome('purbeurre/tests/functionnal/'
-                                        'chromedriver', chrome_options=chrome_options)
+                                        'chromedriver',
+                                        chrome_options=chrome_options)
 
     def tearDown(self):
         self.browser.close()

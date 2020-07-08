@@ -85,7 +85,7 @@ class DatabaseInit:
         if key in dict:
             return dict[key].replace('\n', "").lower()
         elif key not in dict and key == 'nutrition_grade_fr':
-            return "N"
+            return "n"
         else:
             return "Nom inconnu"
 
