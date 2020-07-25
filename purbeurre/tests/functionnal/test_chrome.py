@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from purbeurre.models import Product, Category
 
@@ -34,6 +35,38 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
             saturated_fat_100g=0.68,
             sugars_100g=6.1,
             salt_100g=0.13,
+            category=category
+            )
+
+    def create_d_and_e_nutriscores_products(self):
+        category = Category.objects.create(name='pates a tartiner aux nois'
+                                                'ettes et au cacao')
+
+        Product.objects.create(
+            name='Nutella - Ferrero - 750g',
+            nutriscore='e',
+            url='https://fr.openfoodfacts.org/produit/4008400404127/'
+                'nutella-ferrero',
+            image_url='https://static.openfoodfacts.org/images/products/400/'
+                      '840/040/4127/front_fr.49.400.jpg',
+            fat_100g=30.9,
+            saturated_fat_100g=10.6,
+            sugars_100g=56.3,
+            salt_100g=0.107,
+            category=category
+            )
+
+        Product.objects.create(
+            name='NuPâte à tartiner - U - 1 kg',
+            nutriscore='d',
+            url='https://fr.openfoodfacts.org/produit/3256227557187/'
+                'pate-a-tartiner-u',
+            image_url='https://static.openfoodfacts.org/images/products/325/'
+                      '622/755/7187/front_fr.23.400.jpg',
+            fat_100g=29,
+            saturated_fat_100g=4.8,
+            sugars_100g=57,
+            salt_100g=0.18,
             category=category
             )
 
@@ -101,3 +134,23 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
             favourite.text,
             'Choc! noisette cacao et lait - 2...'
             )
+
+    def test_results_nutriscores_better_than_d(self):
+
+        self.create_d_and_e_nutriscores_products()
+
+        self.browser.get(self.live_server_url)
+
+        user_search = self.browser.find_element_by_id("user_search")
+
+        user_search.send_keys("Nutella")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        try:
+            self.browser.find_element_by_class_name("food-pic-container")
+            not_found = False
+        except(NoSuchElementException):
+            not_found = True
+
+        self.assertTrue(not_found)
