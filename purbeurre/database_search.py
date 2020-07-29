@@ -16,7 +16,7 @@ class DatabaseSearch:
         categories = self.get_categories_from_search(search)
 
         if categories is None:
-            return None
+            return Product.objects.first()
         else:
             for i, cat in enumerate(categories.keys()):
                 cat_subs_list.append({cat: []})
