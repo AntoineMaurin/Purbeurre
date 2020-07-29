@@ -16,7 +16,7 @@ class DatabaseSearch:
         categories = self.get_categories_from_search(search)
 
         if categories is None:
-            return Product.objects.all()[:1]
+            return None
         else:
             for i, cat in enumerate(categories.keys()):
                 cat_subs_list.append({cat: []})
@@ -33,6 +33,7 @@ class DatabaseSearch:
 
         products = Product.objects.filter(Q(name__startswith=search.lower())
                                           | Q(name__contains=search.lower()))
+        products.append(Product.objects.all()[:1])
 
         return self.keep_only_real_categories(products)
 
