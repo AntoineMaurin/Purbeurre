@@ -35,6 +35,7 @@ class DatabaseSearch:
 
         products = Product.objects.filter(Q(name__startswith=search.lower())
                                           | Q(name__contains=search.lower()))
+        products.append(Product.objects.all()[:1])
 
         return self.keep_only_real_categories(products)
 
