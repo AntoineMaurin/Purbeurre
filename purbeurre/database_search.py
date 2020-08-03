@@ -12,12 +12,11 @@ class DatabaseSearch:
         get_categories_from_search() method, and if it's not empty,
         builds a list of dictionnaries where each one has the category's name
         as key and a list of the 6 best products as value."""
-        d = {'':Product.objects.all()[:1]}
         cat_subs_list = []
         categories = self.get_categories_from_search(search)
 
         if categories is None:
-            return [d]
+            return None
         else:
             for i, cat in enumerate(categories.keys()):
                 cat_subs_list.append({cat: []})
@@ -28,14 +27,12 @@ class DatabaseSearch:
                     if r.nutriscore < 'd':
                         cat_subs_list[i][cat].append(r)
 
-            cat_subs_list.append(d)
             return cat_subs_list
 
     def get_categories_from_search(self, search):
 
         products = Product.objects.filter(Q(name__startswith=search.lower())
                                           | Q(name__contains=search.lower()))
-        products.append(Product.objects.all()[:1])
 
         return self.keep_only_real_categories(products)
 

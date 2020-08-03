@@ -20,7 +20,7 @@ def search(request):
         # Optionally pass a request and we'll grab any information we can
         'request': request,
         })
-        
+
         dbs = DatabaseSearch()
         subs_per_category = dbs.get_substitutes_per_category(user_search)
 
