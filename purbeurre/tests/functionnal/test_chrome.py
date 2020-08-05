@@ -196,11 +196,11 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
 
         self.assertEquals(
             self.browser.current_url,
-            self.live_server_url + '/product/5'
+            self.live_server_url + '/product/49420'
             )
 
         self.browser.find_element_by_xpath('//a[contains'
-                                           '(@href,"/save/5")]').click()
+                                           '(@href,"/save/49420")]').click()
 
         carrot_icon = self.browser.find_element_by_xpath('//a[contains'
                                                          '(@href,"/myfood")]')
@@ -249,7 +249,7 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
 
         self.assertEquals(
             self.browser.current_url,
-            self.live_server_url + '/accounts/login?next=/save/2'
+            self.live_server_url + '/accounts/login?next=/save/49417'
             )
 
         username = self.browser.find_element_by_name("username")
