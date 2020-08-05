@@ -48,6 +48,15 @@
 {% block main_content %}
 <section class="py-2 wheat-bg product-section">
   <div class="container-fluid">
+    {% if messages %}
+      {% for message in messages %}
+      <div class="row justify-content-center col-auto ">
+        <div class="alert alert-{{ message.tags }} text-center">
+          {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
     <div class="row justify-content-center">
       <div class="col-lg-4 text-center mt-5 mb-5">
         {% if product.nutriscore == 'a' %}
@@ -95,6 +104,9 @@
       <button type="button" name="button" class="px-2 mx-4" onclick="goBack()">Retour</button>
       <a href="{{ product.url }}">
         <button type="button" name="button" class="px-2 mx-4">Voir la fiche d'OpenFoodFacts</button>
+      </a>
+      <a href="/save/{{ product.id }}">
+        <button type="button" name="button" class="px-2 mx-4">Sauvegarder</button>
       </a>
     </div>
   </div>

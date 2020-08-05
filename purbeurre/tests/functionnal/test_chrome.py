@@ -154,3 +154,67 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
             not_found = True
 
         self.assertTrue(not_found)
+
+    def test_save_button_from_product_page(self):
+
+        self.browser.get(self.live_server_url + '/accounts/register')
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/accounts/register'
+            )
+        email = self.browser.find_element_by_name("email")
+        pw1 = self.browser.find_element_by_name("pw1")
+        pw2 = self.browser.find_element_by_name("pw2")
+        email.send_keys("testsavebutton@test.com")
+        pw1.send_keys("testpassword")
+        pw2.send_keys("testpassword")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        username = self.browser.find_element_by_name("username")
+        password = self.browser.find_element_by_name("password")
+
+        username.send_keys("testsavebutton@test.com")
+        password.send_keys("testpassword")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        self.create_product()
+
+        user_search = self.browser.find_element_by_id("user_search")
+
+        user_search.send_keys("cacao")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/results?user_search=cacao'
+            )
+
+        self.browser.find_element_by_class_name('food-pic-container').click()
+
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/product/4'
+            )
+
+        self.browser.find_element_by_xpath('//a[contains'
+                                           '(@href,"/save/4")]').click()
+
+        carrot_icon = self.browser.find_element_by_xpath('//a[contains'
+                                                         '(@href,"/myfood")]')
+
+        carrot_icon.click()
+
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/myfood'
+            )
+
+        favourite = self.browser.find_element_by_tag_name('p')
+
+        self.assertEquals(
+            favourite.text,
+            'Choc! noisette cacao et lait - 2...'
+            )
