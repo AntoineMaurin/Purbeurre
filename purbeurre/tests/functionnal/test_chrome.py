@@ -196,11 +196,11 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
 
         self.assertEquals(
             self.browser.current_url,
-            self.live_server_url + '/product/4'
+            self.live_server_url + '/product/5'
             )
 
         self.browser.find_element_by_xpath('//a[contains'
-                                           '(@href,"/save/4")]').click()
+                                           '(@href,"/save/5")]').click()
 
         carrot_icon = self.browser.find_element_by_xpath('//a[contains'
                                                          '(@href,"/myfood")]')
@@ -217,4 +217,50 @@ class PurbeurreChromeTest(StaticLiveServerTestCase):
         self.assertEquals(
             favourite.text,
             'Choc! noisette cacao et lait - 2...'
+            )
+
+    def test_initial_search_after_login(self):
+
+        self.browser.get(self.live_server_url + '/accounts/register')
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/accounts/register'
+            )
+        email = self.browser.find_element_by_name("email")
+        pw1 = self.browser.find_element_by_name("pw1")
+        pw2 = self.browser.find_element_by_name("pw2")
+        email.send_keys("testredirection@test.com")
+        pw1.send_keys("testpassword")
+        pw2.send_keys("testpassword")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        self.create_product()
+
+        self.browser.get(self.live_server_url)
+
+        user_search = self.browser.find_element_by_id("user_search")
+
+        user_search.send_keys("cacao")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        self.browser.find_element_by_tag_name('h6').click()
+
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/accounts/login?next=/save/2'
+            )
+
+        username = self.browser.find_element_by_name("username")
+        password = self.browser.find_element_by_name("password")
+
+        username.send_keys("testredirection@test.com")
+        password.send_keys("testpassword")
+
+        self.browser.find_element_by_class_name("btn-primary").click()
+
+        self.assertEquals(
+            self.browser.current_url,
+            self.live_server_url + '/results?user_search=cacao'
             )
