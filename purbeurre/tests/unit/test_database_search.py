@@ -29,7 +29,21 @@ class DatabaseSearchTest(TestCase):
 
     def test_nonsense_search_gives_no_results(self):
         result = self.dbs.get_substitutes_per_category('fsfklhsdflqj')
-        self.assertEquals(result, None)        
+        self.assertEquals(result, None)
+
+    def test_every_category_has_six_products(self):
+         products = []
+
+         for category in Category.objects.all():
+             one_product = Product.objects.filter(
+                                                  category=category
+                                                  ).order_by('name')[0]
+             products.append(one_product)
+
+         for product in products:
+             categories = self.dbs.get_substitutes_per_category(product.name)
+             for category in categories:
+                 self.assertEquals(len(list(category.values())[0]), 6)
 
     def test_bad_products_are_not_given_in_results(self):
         good_nutriscores_list = ['a', 'b', 'c']

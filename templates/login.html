@@ -29,6 +29,9 @@
           {% endfor %}
         {% endif %}
         {{ form|crispy }}
+        {% if request.GET.next %}
+          <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
         <div class="text-center mt-3">
           <input class="btn btn-primary" type="submit" value="Envoyer">
         </div>

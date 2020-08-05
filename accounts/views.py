@@ -44,7 +44,13 @@ def user_login(request):
             login(request, user)
             request.session['user_mail'] = user.email
             request.session['user_name'] = user.email.split("@")[0]
-            return redirect("/")
+            if 'next' in request.POST:
+                if 'search_url' in request.session:
+                    return redirect(request.session['search_url'])
+                else:
+                    return redirect(request.POST.get('next'))
+            else:
+                return redirect("/")
         else:
             messages.error(request, "Email ou mot de passe incorrect.")
             return render(request, "login.html", {'form': form})

@@ -6,7 +6,7 @@ from favourites.models import Favourite
 from django.contrib import messages
 
 
-@login_required()
+@login_required
 def save(request, id):
     user_mail = request.session['user_mail']
     user = User.objects.get(email=user_mail)
@@ -20,7 +20,6 @@ def save(request, id):
         messages.info(request, "Ce produit est déjà dans votre liste !")
 
     return redirect(request.META['HTTP_REFERER'])
-
 
 @login_required
 def remove(request, id):

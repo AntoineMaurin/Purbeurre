@@ -24,6 +24,9 @@ def search(request):
         dbs = DatabaseSearch()
         subs_per_category = dbs.get_substitutes_per_category(user_search)
 
+        request.session['search_url'] = (request.path +
+                                        '?' + request.META['QUERY_STRING'])
+
         context = {'user_search': user_search,
                    'subs_per_category': subs_per_category}
 
